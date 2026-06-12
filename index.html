@@ -3,34 +3,68 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Zhuoyan Meng — AI-enabled Government &amp; Data Platforms</title>
-<meta name="description" content="Product Portfolio of Zhuoyan Meng — Senior Product Designer &amp; Manager focused on AI-enabled government and enterprise platforms: applied AI, operational dashboards, governance workflows, and data-driven decision support." />
+<title>Zhuoyan Meng — AI-assisted Decision &amp; Workflow Systems</title>
+<meta name="description" content="Portfolio of Zhuoyan Meng — Senior Product Designer for AI-assisted decision and workflow systems. AI agents, decision-support dashboards, and operational platforms for knowledge work and government/enterprise environments." />
 <style>
   /* ---------- Design tokens ---------- */
   :root {
     --bg: #ffffff;
-    --bg-soft: #f7f8fa;
+    --bg-soft: #fafbfc;
     --bg-muted: #f1f3f6;
-    --text: #1a1f2c;
-    --text-soft: #4a5365;
-    --text-muted: #6b7385;
-    --border: #e5e8ee;
-    --border-strong: #d6dae3;
+    --surface: #ffffff;
+    --surface-elev: #ffffff;
+
+    --text: #0f1419;
+    --text-soft: #3b4254;
+    --text-muted: #6b7280;
+    --text-faint: #9ca3af;
+
+    --border: #e6e8ee;
+    --border-strong: #d1d5db;
+    --border-soft: #eef0f4;
+
     --accent: #2c4a7c;
+    --accent-strong: #1f3661;
     --accent-soft: #eaf0fa;
-    --shadow-sm: 0 1px 2px rgba(20, 28, 48, 0.04), 0 1px 3px rgba(20, 28, 48, 0.04);
-    --shadow-md: 0 2px 6px rgba(20, 28, 48, 0.05), 0 8px 20px rgba(20, 28, 48, 0.05);
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 14px;
+    --accent-faint: #f4f7fc;
+
+    --agent: #4f46e5;
+    --agent-soft: #eef0ff;
+
+    --user: #0f1419;
+    --user-soft: #f3f4f6;
+
+    --success: #047857;
+    --warning: #b45309;
+    --warning-soft: #fef3c7;
+    --danger: #b91c1c;
+    --danger-soft: #fee2e2;
+
+    --shadow-xs: 0 1px 2px rgba(15, 20, 25, 0.04);
+    --shadow-sm: 0 1px 2px rgba(15, 20, 25, 0.04), 0 1px 3px rgba(15, 20, 25, 0.04);
+    --shadow-md: 0 2px 4px rgba(15, 20, 25, 0.04), 0 8px 24px rgba(15, 20, 25, 0.06);
+    --shadow-lg: 0 4px 8px rgba(15, 20, 25, 0.04), 0 20px 50px rgba(15, 20, 25, 0.08);
+
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 28px;
+
     --space-xs: 4px;
     --space-sm: 8px;
     --space-md: 16px;
     --space-lg: 24px;
     --space-xl: 40px;
     --space-2xl: 64px;
-    --content-max: 1080px;
+    --space-3xl: 96px;
+    --space-4xl: 128px;
+
+    --content-max: 1180px;
+    --content-narrow: 820px;
+
     --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
   }
 
   /* ---------- Base ---------- */
@@ -39,7 +73,7 @@
   body {
     margin: 0;
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.65;
     color: var(--text);
     background: var(--bg);
@@ -48,58 +82,69 @@
   }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  p { margin: 0 0 var(--space-md); }
-  ul { margin: 0 0 var(--space-md); padding-left: 1.25em; }
+  p { margin: 0 0 var(--space-md); color: var(--text-soft); }
+  ul { margin: 0 0 var(--space-md); padding-left: 1.25em; color: var(--text-soft); }
   li { margin-bottom: 6px; }
-  h1, h2, h3, h4 {
+  strong { color: var(--text); font-weight: 600; }
+
+  h1, h2, h3, h4, h5 {
     font-weight: 600;
     color: var(--text);
-    line-height: 1.3;
+    line-height: 1.2;
     margin: 0 0 var(--space-md);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.6rem; }
-  h3 { font-size: 1.2rem; }
-  h4 { font-size: 1rem; }
+  h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+  h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); letter-spacing: -0.025em; }
+  h3 { font-size: 1.35rem; }
+  h4 { font-size: 1.05rem; font-weight: 600; }
+  h5 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
 
   /* ---------- Layout ---------- */
   .container {
     max-width: var(--content-max);
     margin: 0 auto;
-    padding: 0 var(--space-lg);
+    padding: 0 var(--space-xl);
   }
-  section { padding: var(--space-2xl) 0; }
-  section + section { border-top: 1px solid var(--border); }
+  .container-narrow { max-width: var(--content-narrow); margin: 0 auto; padding: 0 var(--space-xl); }
+  section { padding: var(--space-3xl) 0; }
+  @media (max-width: 720px) {
+    .container, .container-narrow { padding: 0 var(--space-lg); }
+    section { padding: var(--space-2xl) 0; }
+  }
   .section-eyebrow {
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.16em;
     font-size: 0.78rem;
     color: var(--accent);
     font-weight: 600;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-mono);
   }
-  .section-title { margin-bottom: var(--space-lg); }
-  .section-intro { max-width: 720px; color: var(--text-soft); margin-bottom: var(--space-xl); }
+  .section-title { margin-bottom: var(--space-lg); max-width: 760px; }
+  .section-intro { max-width: 720px; color: var(--text-soft); margin-bottom: var(--space-2xl); font-size: 1.1rem; line-height: 1.65; }
 
-  /* ---------- Top bar ---------- */
+  /* ---------- Topbar ---------- */
   .topbar {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: saturate(180%) blur(10px);
-    -webkit-backdrop-filter: saturate(180%) blur(10px);
-    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid var(--border-soft);
   }
   .topbar-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    height: 64px;
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
   }
-  .brand { font-weight: 600; font-size: 0.95rem; color: var(--text); }
-  .brand .brand-role { color: var(--text-muted); font-weight: 400; margin-left: 6px; }
+  .brand { font-weight: 600; font-size: 0.95rem; color: var(--text); letter-spacing: -0.01em; }
+  .brand .brand-mark { color: var(--accent); margin-right: 2px; }
   .nav { display: flex; gap: var(--space-lg); }
   .nav a {
     color: var(--text-soft);
@@ -107,638 +152,779 @@
     font-weight: 500;
   }
   .nav a:hover { color: var(--accent); text-decoration: none; }
-  @media (max-width: 720px) {
+  @media (max-width: 760px) {
     .nav { display: none; }
+    .topbar-inner { padding: 0 var(--space-lg); }
   }
 
   /* ---------- Hero ---------- */
   .hero {
-    padding: calc(var(--space-2xl) + 16px) 0 var(--space-2xl);
-    background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
-    border-bottom: 1px solid var(--border);
+    padding: calc(var(--space-3xl) + 24px) 0 var(--space-3xl);
+    background:
+      radial-gradient(ellipse at top right, rgba(79, 70, 229, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(44, 74, 124, 0.05) 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border-soft);
   }
   .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     text-transform: uppercase;
     letter-spacing: 0.16em;
     font-size: 0.78rem;
     color: var(--accent);
     font-weight: 600;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-mono);
+  }
+  .hero-eyebrow .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--agent);
+    box-shadow: 0 0 0 4px var(--agent-soft);
   }
   .hero h1 {
-    font-size: clamp(2rem, 4vw, 2.85rem);
-    margin-bottom: var(--space-sm);
-    letter-spacing: -0.02em;
+    margin-bottom: var(--space-lg);
+    max-width: 900px;
   }
+  .hero h1 .accent-line { display: block; color: var(--accent); }
   .hero-role {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--text-soft);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    max-width: 720px;
   }
-  .hero-positioning {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    color: var(--text);
-    border-left: 3px solid var(--accent);
-    padding-left: var(--space-md);
-    max-width: 760px;
-    margin: 0 0 var(--space-lg);
-    font-weight: 500;
-  }
+  .hero-role strong { color: var(--text); }
   .hero-summary {
-    max-width: 760px;
+    font-size: 1.15rem;
+    line-height: 1.6;
     color: var(--text-soft);
-    margin-bottom: var(--space-lg);
+    max-width: 720px;
+    margin-bottom: var(--space-xl);
   }
   .hero-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-top: var(--space-md);
+    gap: 8px;
+    margin-bottom: var(--space-xl);
   }
   .chip {
     display: inline-flex;
     align-items: center;
-    background: var(--bg-muted);
+    background: var(--surface);
     color: var(--text-soft);
     padding: 6px 12px;
     border-radius: 999px;
     font-size: 0.82rem;
     border: 1px solid var(--border);
+    font-weight: 500;
   }
   .chip.accent {
     background: var(--accent-soft);
     color: var(--accent);
     border-color: transparent;
   }
+  .chip.agent {
+    background: var(--agent-soft);
+    color: var(--agent);
+    border-color: transparent;
+  }
   .confidentiality {
     margin-top: var(--space-xl);
-    color: var(--text-muted);
+    color: var(--text-faint);
     font-size: 0.85rem;
-    font-style: italic;
+    max-width: 720px;
   }
 
   /* ---------- About ---------- */
-  .about p { color: var(--text-soft); max-width: 760px; }
+  .about p { color: var(--text-soft); max-width: 760px; font-size: 1.05rem; }
+  .about p + p { margin-top: var(--space-md); }
 
-  /* ---------- Cards ---------- */
+  /* ---------- Selected Work header ---------- */
+  .work-header { margin-bottom: var(--space-2xl); }
+  .work-header .section-intro { margin-bottom: 0; }
+
+  /* ---------- Case (general) ---------- */
+  .case {
+    background: var(--surface);
+    margin-bottom: var(--space-3xl);
+  }
+  .case + .case { padding-top: var(--space-2xl); border-top: 1px solid var(--border-soft); }
+  .case-marker {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .case-marker .badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .case-marker .badge.flagship {
+    background: var(--agent-soft);
+    color: var(--agent);
+  }
+  .case-title {
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-sm);
+    max-width: 820px;
+  }
+  .case-subtitle {
+    color: var(--text-soft);
+    font-size: 1.1rem;
+    line-height: 1.55;
+    max-width: 720px;
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Case summary cards */
+  .case-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-lg);
+    background: var(--accent-faint);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+  }
+  .case-summary-item h5 { margin-bottom: 6px; }
+  .case-summary-item p { margin: 0; color: var(--text); font-size: 0.95rem; line-height: 1.55; }
+
+  /* ---------- Sub-blocks within a case ---------- */
+  .case-block { margin-bottom: var(--space-2xl); }
+  .case-block .block-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-family: var(--font-mono);
+    margin-bottom: 8px;
+  }
+  .case-block h3 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+    max-width: 720px;
+  }
+  .case-block .lede {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    max-width: 720px;
+    line-height: 1.65;
+  }
+  .hmw {
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: var(--text);
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px var(--space-md);
+    margin: var(--space-lg) 0;
+    max-width: 760px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  /* ---------- Cards grid ---------- */
   .grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
   }
-  .card {
-    background: var(--bg);
+  .grid-cards-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-cards-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 820px) {
+    .grid-cards-3, .grid-cards-2 { grid-template-columns: 1fr; }
+  }
+  .feat-card {
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+  .feat-card:hover {
     border-color: var(--border-strong);
+    box-shadow: var(--shadow-sm);
   }
-  .card h3 {
-    font-size: 1.05rem;
-    margin-bottom: var(--space-sm);
-  }
-  .card p {
-    color: var(--text-soft);
-    margin-bottom: 0;
-    font-size: 0.95rem;
-  }
-  .card-icon {
+  .feat-card .icon-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
+    width: 32px; height: 32px;
     background: var(--accent-soft);
     color: var(--accent);
-    font-weight: 600;
+    border-radius: 8px;
     margin-bottom: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .feat-card.agent .icon-pill {
+    background: var(--agent-soft);
+    color: var(--agent);
+  }
+  .feat-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: var(--space-sm);
+  }
+  .feat-card p {
+    margin: 0;
+    color: var(--text-soft);
     font-size: 0.95rem;
+    line-height: 1.6;
   }
 
-  /* ---------- Case studies ---------- */
-  .case {
-    border: 1px solid var(--border);
+  /* ---------- AI Capability Map ---------- */
+  .capability-map {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
-    margin-bottom: var(--space-xl);
-    background: var(--bg);
-    box-shadow: var(--shadow-sm);
   }
-  .case-header {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
+  .capability-modules {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: var(--space-lg);
   }
-  .case-number {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  @media (max-width: 920px) {
+    .capability-modules { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .capability-modules { grid-template-columns: 1fr; }
+  }
+  .module-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    text-align: left;
+  }
+  .module-card .module-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
     color: var(--accent);
     font-weight: 600;
-    font-size: 0.85rem;
     letter-spacing: 0.08em;
+    margin-bottom: 6px;
   }
-  .case-title { font-size: 1.5rem; margin: 0; }
-  .case-subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: var(--space-lg); }
-  .case h4 {
+  .module-card h4 {
     font-size: 0.95rem;
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-sm);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .module-card p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+  .capability-loop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: var(--space-md);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    margin: var(--space-md) 0;
+    font-size: 0.85rem;
+  }
+  .capability-loop .stage {
+    color: var(--accent);
+    font-weight: 600;
+    padding: 4px 10px;
+    background: var(--accent-soft);
+    border-radius: 999px;
+  }
+  .capability-loop .arrow { color: var(--text-faint); font-weight: 600; }
+  .capability-base {
+    padding: var(--space-md);
+    background: var(--agent-soft);
+    border: 1px dashed var(--agent);
+    border-radius: var(--radius-sm);
+    color: var(--agent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  .capability-base strong { color: var(--agent); }
+
+  /* ---------- Mockup gallery ---------- */
+  .mockup-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+  @media (max-width: 920px) {
+    .mockup-gallery { grid-template-columns: 1fr; }
+  }
+  .mockup-item h4 {
+    font-size: 0.95rem;
+    margin-top: var(--space-md);
+    margin-bottom: 4px;
+  }
+  .mockup-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ---------- Mockup base ---------- */
+  .mockup {
+    background: linear-gradient(180deg, #f8fafc 0%, #eef1f5 100%);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+  }
+  .mockup-screen {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mockup-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px var(--space-md);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border-soft);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+  .mockup-statusbar .app-name {
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .mockup-statusbar .app-name .ai-mark {
+    color: var(--agent);
+    margin-right: 4px;
+  }
+  .mockup-body {
+    flex: 1;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .mockup-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px var(--space-md);
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border-soft);
+    font-size: 0.8rem;
+    color: var(--text-faint);
+  }
+  .mockup-input .input-field {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 12px;
+  }
+  .mockup-input .mic {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--agent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  /* Chat bubbles */
+  .chat-row { display: flex; gap: 6px; }
+  .chat-row.user { justify-content: flex-end; }
+  .chat-row.agent { justify-content: flex-start; }
+  .chat-bubble {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 14px;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+  .chat-bubble.user {
+    background: var(--user);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+  .chat-bubble.agent {
+    background: var(--bg-muted);
+    color: var(--text);
+    border-bottom-left-radius: 4px;
+  }
+  .chat-meta {
+    font-size: 0.68rem;
+    color: var(--text-faint);
+    text-align: center;
+    margin: 4px 0;
+  }
+
+  /* AI card inside mockup */
+  .ai-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    box-shadow: var(--shadow-xs);
+  }
+  .ai-card-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--agent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .ai-card-header .badge {
+    background: var(--agent-soft);
+    color: var(--agent);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+  .field-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .field-row:last-of-type { border-bottom: none; }
+  .field-row .label { color: var(--text-muted); font-size: 0.72rem; }
+  .field-row .value { color: var(--text); font-weight: 500; text-align: right; }
+  .field-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-end;
+  }
+  .mini-chip {
+    background: var(--bg-muted);
+    color: var(--text);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+  .mini-chip.agent {
+    background: var(--agent-soft);
+    color: var(--agent);
+  }
+  .reasoning {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 8px 0 4px;
+    border-top: 1px dashed var(--border-soft);
+    margin-top: 4px;
+  }
+  .reasoning::before { content: "✦ "; color: var(--agent); }
+  .ai-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .btn {
+    flex: 1;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: default;
+  }
+  .btn-primary { background: var(--agent); color: #fff; }
+  .btn-secondary { background: var(--surface); border-color: var(--border-strong); color: var(--text); }
+  .btn-ghost { background: transparent; color: var(--text-muted); }
+
+  /* Timeline (suggested plan) */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .timeline-block {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--accent);
+  }
+  .timeline-block.task { border-left-color: var(--agent); }
+  .timeline-block.travel { border-left-color: var(--warning); }
+  .timeline-block.conflict { border-left-color: var(--danger); background: var(--danger-soft); }
+  .timeline-time {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    min-width: 56px;
+  }
+  .timeline-content { flex: 1; }
+  .timeline-title { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .timeline-meta { font-size: 0.7rem; color: var(--text-muted); }
+  .timeline-meta .dot-sep { color: var(--text-faint); margin: 0 6px; }
+
+  /* Conflict toast */
+  .toast {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--danger);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    box-shadow: var(--shadow-sm);
+  }
+  .toast-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--danger);
+  }
+  .toast-title .ic {
+    display: inline-flex;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--danger);
+    color: #fff;
+    font-size: 0.7rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  .toast-body { font-size: 0.78rem; color: var(--text); margin-bottom: 8px; }
+  .toast-options {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .toast-option {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+    background: var(--bg-soft);
+    border-radius: 4px;
+    font-size: 0.75rem;
     color: var(--text);
   }
-  .case p, .case ul { color: var(--text-soft); }
-  .case ul { padding-left: 1.2em; }
-  .case li { color: var(--text-soft); }
+  .toast-option .arrow-r { color: var(--text-muted); }
+  .toast-option.preferred { background: var(--agent-soft); color: var(--agent); font-weight: 500; }
 
-  /* Case summary */
-  .case-summary {
-    background: var(--accent-soft);
-    border-left: 3px solid var(--accent);
-    border-radius: var(--radius-sm);
-    padding: var(--space-md) var(--space-lg);
-    margin-bottom: var(--space-lg);
+  /* Form (confirm/edit) */
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 10px;
+  }
+  .form-field label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .form-field .field-value {
+    padding: 8px 10px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+  .form-field.edited .field-value { border-color: var(--agent); background: var(--agent-soft); color: var(--agent); }
+  .source-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-muted);
+    color: var(--text-muted);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    margin-top: 4px;
+  }
+
+  /* Compact case */
+  .case-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+  @media (max-width: 920px) {
+    .case-compact { grid-template-columns: 1fr; }
+  }
+  .case-compact-content h4 { margin-top: 0; }
+  .case-compact-content .key-list {
+    margin: var(--space-md) 0 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .case-compact-content .key-list li {
+    display: flex;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+  }
+  .case-compact-content .key-list li::before {
+    content: "→";
+    color: var(--accent);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .case-visual {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+  }
+
+  /* Mini SVG diagrams in compact cases */
+  .mini-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ---------- Approach ---------- */
+  .approach-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--space-md);
   }
-  .case-summary-item h5 {
+  .approach-card {
+    padding: var(--space-lg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+  .approach-card .step-num {
+    font-family: var(--font-mono);
     font-size: 0.72rem;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--accent);
-    margin: 0 0 4px;
-    font-weight: 600;
-  }
-  .case-summary-item p {
-    margin: 0;
-    color: var(--text);
-    font-size: 0.92rem;
-    line-height: 1.55;
-  }
-
-  /* Deliverables */
-  .deliverables {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-  }
-  .deliverable {
-    display: inline-block;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    color: var(--text-soft);
-    padding: 6px 12px;
-    border-radius: var(--radius-sm);
-    font-size: 0.85rem;
-  }
-
-  .case-demonstrates {
-    margin-top: var(--space-lg);
-    padding-top: var(--space-md);
-    border-top: 1px dashed var(--border);
-    color: var(--text-muted);
-    font-size: 0.88rem;
-  }
-  .case-demonstrates strong { color: var(--text-soft); font-weight: 600; }
-
-  /* Two-column inside case */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-  }
-  @media (max-width: 720px) {
-    .two-col { grid-template-columns: 1fr; gap: var(--space-md); }
-    .case { padding: var(--space-lg); }
-  }
-
-  /* ---------- DIAGRAM PANELS (case-level) ---------- */
-  .diagram-panel {
-    margin: var(--space-md) 0 var(--space-lg);
-    padding: var(--space-lg);
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-  }
-  .diagram-title {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    font-weight: 600;
-    margin: 0 0 var(--space-md);
-  }
-  .diagram-caption {
-    margin: var(--space-md) 0 0;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-
-  /* Horizontal flow */
-  .flow-diagram {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    gap: 6px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-  }
-  .flow-node {
-    flex: 1 1 0;
-    min-width: 110px;
-    padding: 12px 10px;
-    background: var(--bg);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-sm);
-    font-size: 0.82rem;
-    color: var(--text);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-    font-weight: 500;
-    line-height: 1.3;
-  }
-  .flow-node.accent {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-    color: var(--accent);
-  }
-  .flow-node.ai {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-  }
-  .flow-node.user {
-    border-style: dashed;
-    border-color: var(--accent);
-  }
-  .flow-arrow {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 1.1rem;
-    min-width: 14px;
-  }
-  .flow-loop-back {
-    flex: 1 1 100%;
-    margin-top: 8px;
-    padding: 6px 10px;
-    border-top: 1px dashed var(--border-strong);
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.78rem;
-    font-style: italic;
-  }
-  .flow-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    margin-top: var(--space-md);
-    font-size: 0.8rem;
-    color: var(--text-soft);
-  }
-  .flow-legend .legend-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-    margin-right: 6px;
-    vertical-align: middle;
-    border: 1px solid var(--accent);
-  }
-  .flow-legend .legend-dot.ai { background: var(--accent-soft); }
-  .flow-legend .legend-dot.user { background: transparent; border-style: dashed; }
-
-  /* Mobile flow stacks vertically */
-  @media (max-width: 720px) {
-    .flow-diagram {
-      flex-direction: column;
-      flex-wrap: wrap;
-      overflow-x: visible;
-    }
-    .flow-node { width: 100%; }
-    .flow-arrow {
-      transform: rotate(90deg);
-      height: 18px;
-      min-height: 18px;
-    }
-  }
-
-  /* Supports row (chips below diagrams) */
-  .flow-supports {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-top: var(--space-md);
-    padding-top: var(--space-md);
-    border-top: 1px dashed var(--border);
-  }
-  .support-chip {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text-soft);
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 0.78rem;
-  }
-
-  /* KPI cards (sample) */
-  .kpi-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--space-sm);
-    margin-top: var(--space-md);
-  }
-  .kpi-card {
-    padding: 12px 14px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    box-shadow: var(--shadow-sm);
-  }
-  .kpi-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    font-weight: 600;
-  }
-  .kpi-value {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .kpi-spark { width: 100%; height: 24px; }
-
-  /* Layered diagram (UTM) */
-  .layer-diagram {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .layer-row {
-    display: grid;
-    grid-template-columns: 80px 220px 1fr;
-    gap: var(--space-md);
-    align-items: center;
-    padding: var(--space-md);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: var(--radius-sm);
-  }
-  .layer-label {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    color: var(--accent);
     font-weight: 700;
-    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
   }
-  .layer-name {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text);
-  }
-  .layer-nodes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    align-items: center;
-  }
-  .layer-node {
-    padding: 6px 12px;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    border-radius: var(--radius-sm);
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
-  .layer-arrow {
-    color: var(--accent);
-    font-size: 0.85rem;
-  }
-  .layer-connector {
-    text-align: center;
-    color: var(--accent);
-    font-size: 1rem;
-    line-height: 1;
-    margin: -2px 0;
-    opacity: 0.55;
-  }
-  @media (max-width: 720px) {
-    .layer-row {
-      grid-template-columns: 1fr;
-      gap: 6px;
-    }
-  }
-
-  /* ---------- Mini diagrams in Visual Evidence ---------- */
-  .mini-diagram {
-    display: block;
-    width: 100%;
-    height: auto;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    margin-bottom: var(--space-md);
-  }
-  .visual-card .diagram-caption {
-    margin-top: 0;
-    margin-bottom: var(--space-sm);
-    font-style: italic;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-  }
-
-  /* ---------- Working method ---------- */
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--space-md);
-  }
-  @media (max-width: 980px) {
-    .process-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 480px) {
-    .process-grid { grid-template-columns: 1fr; }
-  }
-  .process-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    position: relative;
-  }
-  .process-card .step-num {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.78rem;
-    color: var(--accent);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    margin-bottom: var(--space-sm);
-  }
-  .process-card h3 { font-size: 1.05rem; margin-bottom: var(--space-sm); }
-  .process-card p { margin: 0; color: var(--text-soft); font-size: 0.9rem; }
+  .approach-card h4 { font-size: 1.05rem; margin-bottom: 6px; }
+  .approach-card p { font-size: 0.92rem; color: var(--text-soft); margin: 0; line-height: 1.55; }
 
   /* ---------- Tools ---------- */
   .tool-group { margin-bottom: var(--space-lg); }
   .tool-group h4 {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     color: var(--text-muted);
     margin-bottom: var(--space-sm);
     font-weight: 600;
+    font-family: var(--font-mono);
   }
-  .chip-row { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
-
-  /* ---------- Visual evidence section ---------- */
-  .visual-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-lg);
-  }
-  .visual-card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    background: var(--bg);
-    box-shadow: var(--shadow-sm);
-  }
-  .visual-card h4 { font-size: 1rem; margin-bottom: var(--space-md); }
-  .visual-card ul { margin: 0; padding-left: 1.1em; font-size: 0.9rem; color: var(--text-soft); }
-  .visual-card li { margin-bottom: 4px; }
-
-  /* ---------- UTM matrix table ---------- */
-  .matrix-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    margin: var(--space-md) 0 var(--space-lg);
-  }
-  table.matrix { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-  table.matrix th, table.matrix td {
-    text-align: left;
-    padding: var(--space-md);
-    vertical-align: top;
-    border-bottom: 1px solid var(--border);
-  }
-  table.matrix thead th {
-    background: var(--bg-soft);
-    font-weight: 600;
-    color: var(--text);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  table.matrix tbody tr:last-child td { border-bottom: none; }
-  table.matrix td.layer-cell { color: var(--accent); font-weight: 600; white-space: nowrap; }
-  table.matrix td .product-name { font-weight: 600; color: var(--text); display: block; margin-bottom: 4px; }
-  table.matrix td { color: var(--text-soft); }
-  @media (max-width: 820px) {
-    .matrix-wrap { border: none; overflow: visible; }
-    table.matrix, table.matrix thead, table.matrix tbody,
-    table.matrix tr, table.matrix th, table.matrix td {
-      display: block; width: 100%;
-    }
-    table.matrix thead { display: none; }
-    table.matrix tr {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: var(--space-md);
-      margin-bottom: var(--space-md);
-      background: var(--bg);
-      box-shadow: var(--shadow-sm);
-    }
-    table.matrix td {
-      border-bottom: 1px solid var(--border);
-      padding: var(--space-sm) 0;
-      position: relative;
-      padding-top: 28px;
-    }
-    table.matrix td:last-child { border-bottom: none; }
-    table.matrix td::before {
-      content: attr(data-label);
-      position: absolute;
-      top: 6px; left: 0;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      font-weight: 600;
-    }
-  }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
 
   /* ---------- Contact ---------- */
-  .contact { background: var(--bg-soft); border-top: 1px solid var(--border); padding: var(--space-2xl) 0; }
-  .contact h2 { margin-bottom: var(--space-md); }
+  .contact {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border-soft);
+    padding: var(--space-3xl) 0;
+  }
+  .contact h2 { margin-bottom: var(--space-lg); }
+  .contact-intro {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    max-width: 720px;
+    margin-bottom: var(--space-xl);
+  }
   .contact-card {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    background: var(--bg);
-    padding: var(--space-lg) var(--space-xl);
+    background: var(--surface);
+    padding: var(--space-xl);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-md);
-    box-shadow: var(--shadow-sm);
+    gap: var(--space-lg);
   }
-  .contact-name { font-size: 1.15rem; font-weight: 600; margin: 0 0 4px; }
-  .contact-role { color: var(--text-muted); font-size: 0.92rem; margin: 0; }
+  .contact-name { font-size: 1.25rem; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.015em; }
+  .contact-role { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
   .contact-email {
-    background: var(--accent);
+    background: var(--text);
     color: #fff;
-    padding: 10px 18px;
-    border-radius: var(--radius-sm);
+    padding: 12px 22px;
+    border-radius: 8px;
     font-weight: 500;
     font-size: 0.95rem;
+    letter-spacing: 0.005em;
   }
-  .contact-email:hover { background: #1f3a66; text-decoration: none; }
+  .contact-email:hover { background: var(--accent); text-decoration: none; }
 
   /* ---------- Footer ---------- */
-  footer { padding: var(--space-lg) 0 var(--space-xl); text-align: center; color: var(--text-muted); font-size: 0.82rem; }
-  footer p { margin: 0; }
-  .footer-note { font-style: italic; max-width: 720px; margin: 0 auto; }
+  footer { padding: var(--space-xl) 0 var(--space-2xl); text-align: center; color: var(--text-muted); font-size: 0.82rem; }
+  footer p { margin: 0; color: var(--text-faint); }
+  .footer-note { font-style: italic; max-width: 720px; margin: 0 auto var(--space-sm); color: var(--text-faint); }
 
-  /* ---------- Print / PDF ---------- */
+  /* ---------- Print ---------- */
   @media print {
-    :root { --space-2xl: 24px; --space-xl: 18px; --space-lg: 14px; }
-    body { font-size: 10.5pt; line-height: 1.5; color: #000; }
-    .topbar, .nav { display: none !important; }
+    :root { --space-3xl: 32px; --space-2xl: 24px; --space-xl: 18px; }
+    body { font-size: 10.5pt; line-height: 1.5; color: #000; background: #fff; }
+    .topbar, .nav, .mockup-input { display: none !important; }
     .hero { padding-top: 0; background: none; border-bottom: 1px solid #999; }
-    section { padding: 16px 0; page-break-inside: avoid; }
-    section + section { border-top: 1px solid #ccc; }
-    .case, .card, .visual-card, .process-card, .contact-card,
-    .diagram-panel, .flow-node, .layer-row, .kpi-card {
-      box-shadow: none;
+    section { padding: 18px 0; page-break-inside: avoid; }
+    .case, .feat-card, .approach-card, .contact-card,
+    .mockup, .capability-map {
+      box-shadow: none !important;
       page-break-inside: avoid;
-      border-color: #aaa !important;
+      border-color: #bbb !important;
     }
-    .case-summary, .layer-node, .flow-node.ai, .flow-node.accent {
-      background: #f0f3f8 !important;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .mini-diagram, .diagram-panel { background: #fff !important; }
-    .flow-diagram { overflow: visible; flex-wrap: wrap; }
+    .mockup { background: #fff !important; }
+    .case-summary, .module-card.highlight, .ai-card { background: #f4f6fa !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     a { color: #000; text-decoration: none; }
     .contact-email { background: #000; color: #fff; }
   }
@@ -746,18 +932,15 @@
 </head>
 <body>
 
-<!-- ============== TOP BAR ============== -->
+<!-- ============== TOPBAR ============== -->
 <header class="topbar">
-  <div class="container topbar-inner">
-    <div class="brand">
-      Zhuoyan Meng <span class="brand-role">· Product Portfolio</span>
-    </div>
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark">◆</span> Zhuoyan Meng</div>
     <nav class="nav" aria-label="Main">
       <a href="#about">About</a>
-      <a href="#focus">Focus</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#cases">Case Studies</a>
-      <a href="#method">Method</a>
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#toolkit">Toolkit</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -766,636 +949,829 @@
 <!-- ============== HERO ============== -->
 <section class="hero" id="top">
   <div class="container">
-    <div class="hero-eyebrow">Product Portfolio</div>
-    <h1>AI-enabled Government &amp; Data Platforms</h1>
-    <p class="hero-role"><strong>Zhuoyan Meng</strong> — Senior Product Designer &amp; Manager · Government &amp; Enterprise Platforms</p>
-    <blockquote class="hero-positioning">
-      Translating complex government and enterprise requirements into AI-enabled, data-driven product solutions.
-    </blockquote>
+    <div class="hero-eyebrow"><span class="dot"></span> Portfolio — Senior Product Designer</div>
+    <h1>
+      Designing AI-assisted
+      <span class="accent-line">decision &amp; workflow systems.</span>
+    </h1>
+    <p class="hero-role"><strong>Zhuoyan Meng</strong> — Senior Product Designer &amp; Manager, focused on AI agents, decision-support data products, and operational platforms for knowledge work and government / enterprise environments.</p>
     <p class="hero-summary">
-      Applied AI · Operational Dashboards · Governance Workflows · Data-driven Decision Support.
-      A selection of product work across multi-stakeholder government and enterprise platforms, with a focus on decision-support data products, operational intelligence, governance modeling, and AI capabilities embedded under human-in-the-loop control.
+      Selected work spans an AI agent platform for knowledge workers, a tiered threat-intelligence decision-support dashboard, a public-sector regulation suite with AI add-ons, and a government workflow platform — designed around clear product logic, transparent AI behavior, and human-in-the-loop control.
     </p>
     <div class="hero-meta">
-      <span class="chip accent">AI-powered Data Products</span>
-      <span class="chip accent">Operational Dashboards</span>
-      <span class="chip accent">Governance Workflows</span>
-      <span class="chip accent">Multi-entity Integration</span>
-      <span class="chip accent">Decision Support</span>
+      <span class="chip agent">AI Agent Design</span>
+      <span class="chip accent">Decision-Support Dashboards</span>
+      <span class="chip accent">Operational Workflows</span>
+      <span class="chip accent">Governance &amp; RBAC</span>
+      <span class="chip accent">Bilingual EN / AR</span>
     </div>
     <p class="confidentiality">
-      All cases in this portfolio are presented as anonymized product cases. Client names, identifiers, screens, and data have been generalized for portfolio use.
+      Client engagements are presented as anonymized product cases. Mockups in this portfolio are illustrative — no real client UI, data, or identifiers are included.
     </p>
   </div>
 </section>
 
 <!-- ============== ABOUT ============== -->
-<section id="about" class="about">
-  <div class="container">
+<section id="about">
+  <div class="container-narrow">
     <div class="section-eyebrow">About</div>
-    <h2 class="section-title">Professional Positioning</h2>
+    <h2 class="section-title">A senior product designer working at the intersection of AI behavior, data products, and operational governance.</h2>
     <p>
-      I am a senior product designer and manager focused on AI-enabled platforms in government and enterprise contexts — environments where data visibility, operational workflow, stakeholder coordination, system governance, and delivery feasibility all need to be aligned before a product can move forward with confidence.
+      I design AI-assisted systems for environments where context is complex, decisions matter, and trust has to be earned through the interface. Most of my recent work sits in two adjacent areas: AI agents that propose drafts and decisions for knowledge workers, and tiered decision-support dashboards for sensitive intelligence and operational data.
     </p>
     <p>
-      My experience covers threat intelligence and decision-support dashboards, public-sector regulation and service platforms with AI add-ons, government workflow systems, and AI-driven workflow exploration. The common thread is translating ambiguous, multi-stakeholder requirements into clear, structured, AI-aware product solutions ready for delivery.
-    </p>
-    <p>
-      My strength lies in clarifying ambiguous requirements, structuring product logic, defining workflows and permissions, aligning stakeholders, and translating complex needs — including those involving applied AI and big data analytics — into executable PRDs, prototypes, and delivery-ready solutions.
+      Across both, I treat AI as a product surface, not a capability — which means designing how the system perceives, suggests, confirms, recovers, and explains itself. My output ranges from product definition and PRDs to interaction flows, dashboard structures, RBAC models, and bilingual EN / AR specifications, delivered into UAT and production in regulated government and enterprise contexts.
     </p>
   </div>
 </section>
 
-<!-- ============== RELEVANT PRODUCT FOCUS ============== -->
-<section id="focus">
+<!-- ============== SELECTED WORK ============== -->
+<section id="work">
   <div class="container">
-    <div class="section-eyebrow">Focus</div>
-    <h2 class="section-title">Relevant Product Focus</h2>
-    <p class="section-intro">The product areas I work in most consistently — and where applied AI, big-data analytics, and governance design tend to intersect.</p>
-
-    <div class="grid-cards">
-      <article class="card">
-        <div class="card-icon">01</div>
-        <h3>Government-centric Data Platforms</h3>
-        <p>Multi-stakeholder platforms where regulatory, operational, and data-governance constraints shape the product as much as user-facing flows.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">02</div>
-        <h3>AI-assisted Operational Workflows</h3>
-        <p>Practical AI capabilities — intake, parsing, review, recommendation — embedded inside user workflows under human-in-the-loop control.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">03</div>
-        <h3>Decision-support Dashboards</h3>
-        <p>KPI structures, drill-down hierarchies, and visibility rules designed so the dashboard supports decisions rather than only displaying data.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">04</div>
-        <h3>Role-based Governance &amp; Data Visibility</h3>
-        <p>Organization, role, permission, and data-scope models that make platform behavior predictable, auditable, and ready to scale.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">05</div>
-        <h3>Multi-stakeholder Digital Transformation</h3>
-        <p>Scoping, alignment, and phased delivery across clients, technical leads, vendors, and management — keeping ambiguous initiatives moving.</p>
-      </article>
+    <div class="work-header">
+      <div class="section-eyebrow">Selected Work</div>
+      <h2 class="section-title">Four cases across AI agents, decision-support data products, and operational governance.</h2>
+      <p class="section-intro">Case 01 is the flagship — a full product design case for an AI agent for knowledge workers. Cases 02–04 are condensed snapshots of related work in decision-support dashboards, public-sector platforms, and government workflow systems.</p>
     </div>
-  </div>
-</section>
 
-<!-- ============== CAPABILITIES ============== -->
-<section id="capabilities">
-  <div class="container">
-    <div class="section-eyebrow">Capabilities</div>
-    <h2 class="section-title">Core Capabilities</h2>
-    <div class="grid-cards">
-      <article class="card">
-        <div class="card-icon">01</div>
-        <h3>Requirement Clarification &amp; Product Structuring</h3>
-        <p>Translate fragmented business inputs into a clear product scope: roles, system logic, end-to-end flows, and delivery-ready documentation.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">02</div>
-        <h3>Dashboard &amp; Data Product Design</h3>
-        <p>Design dashboard information architecture, KPI logic, filtering, drill-down behavior, and data visibility rules — making complex data products understandable to business stakeholders.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">03</div>
-        <h3>Workflow &amp; Governance Design</h3>
-        <p>Define request lifecycles, approval flows, role hierarchies, permission rules, data scope, and audit mechanisms for regulated environments.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">04</div>
-        <h3>AI-driven Product Thinking</h3>
-        <p>Explore AI-assisted workflows grounded in real user tasks and available data — summarization, prioritization, recommendation, intake, and operational insight, with human-in-the-loop logic at the core.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">05</div>
-        <h3>Cross-functional Delivery Alignment</h3>
-        <p>Coordinate clients, technical leads, vendors, internal teams, and management to reduce ambiguity and keep delivery moving from scope through UAT to production.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============== CASE STUDIES ============== -->
-<section id="cases">
-  <div class="container">
-    <div class="section-eyebrow">Case Studies</div>
-    <h2 class="section-title">Selected Case Studies</h2>
-
-    <!-- ===== Case 01 — Threat Intelligence Decision-Support Dashboard (LEAD) ===== -->
-    <article class="case">
-      <div class="case-header">
-        <span class="case-number">CASE 01</span>
-        <h3 class="case-title">Threat Intelligence Decision-Support Dashboard</h3>
+    <!-- =============================================== -->
+    <!-- CASE 01 — AI AGENT (FLAGSHIP) -->
+    <!-- =============================================== -->
+    <article class="case" id="case-ai-agent">
+      <div class="case-marker">
+        <span class="badge flagship">FLAGSHIP</span>
+        <span>Case 01 · AI Agent Product Design</span>
       </div>
-      <p class="case-subtitle">A tiered decision-support data product — KPI governance, severity tiering, and permission-aware data visibility for sensitive intelligence data.</p>
+      <h2 class="case-title">EVA — An AI Agent for Knowledge Work</h2>
+      <p class="case-subtitle">A multi-module AI agent that turns meetings, messages, email, tasks, and travel into structured drafts the user can confirm, edit, or reject. Designed around a knowledge-graph substrate and a perception → analysis → decision → action loop.</p>
 
       <div class="case-summary">
         <div class="case-summary-item">
-          <h5>Case Focus</h5>
-          <p>An analytics-driven decision-support dashboard with KPI governance, severity tiering, and permission-aware visibility across global, regional, and entity-level views.</p>
+          <h5>Role</h5>
+          <p>Senior Product Designer (lead) — product definition, AI capability mapping, interaction design, and human-in-the-loop framework.</p>
         </div>
         <div class="case-summary-item">
-          <h5>My Contribution</h5>
-          <p>Product manager responsible for dashboard logic, KPI definition and governance, PRD structuring, data assumption alignment, and client-facing metric explanation.</p>
+          <h5>Scope</h5>
+          <p>Phase 2 product design. Five AI modules: Meeting, IM, Email, Event-Task, and Travel — unified by a personal &amp; organizational knowledge graph.</p>
         </div>
         <div class="case-summary-item">
-          <h5>Core Product Value</h5>
-          <p>Disciplined KPI definitions and a transparent data model that turn complex intelligence data into a defensible, business-readable decision-support product.</p>
+          <h5>Design Stance</h5>
+          <p>Active assistance over passive Q&amp;A. The agent always produces drafts — never silent commits. Every suggestion is confirmable, editable, reversible.</p>
         </div>
       </div>
 
-      <!-- Diagram: Dashboard Data Logic Pipeline + KPI cards -->
-      <div class="diagram-panel" aria-label="Threat intelligence dashboard data logic diagram">
-        <p class="diagram-title">Dashboard Data Logic — From Source to Decision Support</p>
-        <div class="flow-diagram">
-          <div class="flow-node">Data<br/>Sources</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">IOC Match<br/>Foundation</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">KPI<br/>Calculation</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">Filters /<br/>Time Window</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node accent">Tiered<br/>Dashboard</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">Drill-down /<br/>Structured Output</div>
-        </div>
-
-        <div class="kpi-row" aria-label="Sample KPI cards">
-          <div class="kpi-card">
-            <span class="kpi-label">Composite Score</span>
-            <span class="kpi-value">— sample —</span>
-            <svg class="kpi-spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true">
-              <polyline points="0,18 14,15 28,17 42,11 56,13 70,8 84,10 100,5"
-                fill="none" stroke="#2c4a7c" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-label">IOC Match Volume</span>
-            <span class="kpi-value">— sample —</span>
-            <svg class="kpi-spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true">
-              <rect x="4"  y="10" width="8" height="14" fill="#2c4a7c"/>
-              <rect x="18" y="6"  width="8" height="18" fill="#2c4a7c"/>
-              <rect x="32" y="13" width="8" height="11" fill="#2c4a7c"/>
-              <rect x="46" y="4"  width="8" height="20" fill="#2c4a7c"/>
-              <rect x="60" y="9"  width="8" height="15" fill="#2c4a7c"/>
-              <rect x="74" y="14" width="8" height="10" fill="#2c4a7c"/>
-              <rect x="88" y="7"  width="8" height="17" fill="#2c4a7c"/>
-            </svg>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-label">Entity Risk View</span>
-            <span class="kpi-value">— sample —</span>
-            <svg class="kpi-spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true">
-              <line x1="20" y1="12" x2="50" y2="6"  stroke="#6b7385" stroke-width="0.8"/>
-              <line x1="50" y1="6"  x2="80" y2="14" stroke="#6b7385" stroke-width="0.8"/>
-              <line x1="50" y1="6"  x2="60" y2="20" stroke="#6b7385" stroke-width="0.8"/>
-              <line x1="20" y1="12" x2="60" y2="20" stroke="#6b7385" stroke-width="0.8"/>
-              <circle cx="20" cy="12" r="3" fill="#2c4a7c"/>
-              <circle cx="50" cy="6"  r="3" fill="#2c4a7c"/>
-              <circle cx="80" cy="14" r="3" fill="#2c4a7c"/>
-              <circle cx="60" cy="20" r="3" fill="#2c4a7c"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="flow-supports">
-          <span class="support-chip">Tiered Drill-down (Global → Regional → Entity)</span>
-          <span class="support-chip">Severity Tiers (Critical / Elevated / Normal)</span>
-          <span class="support-chip">Role-based Visibility</span>
-          <span class="support-chip">KPI Governance</span>
-          <span class="support-chip">Permission-aware Output</span>
-          <span class="support-chip">External Action Handoff</span>
-        </div>
-        <p class="diagram-caption">A disciplined data pipeline feeding a tiered decision-support dashboard, with KPI definitions, severity thresholds, and visibility rules made explicit.</p>
+      <!-- ===== Problem ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">Problem</div>
+        <h3>Knowledge workers don't lack tools — they lack a layer above the tools.</h3>
+        <p class="lede">
+          Meetings, IM, email, tasks, and travel each have a category leader, but the cognitive load lives in the seams between them. Action items get lost between a Zoom call and a chat thread. Email drafts repeat decisions already made. Reminders fire on the wrong rhythm. Existing assistants answer questions on demand — useful, but reactive. The opportunity is to design an agent that actively maintains context across surfaces, while keeping the human firmly in control of every commit.
+        </p>
       </div>
 
-      <h4>Context</h4>
-      <p>An analytics-driven threat intelligence platform delivered as a decision-support data product. Visibility is organized in three tiers — a global view, a regional view, and an entity-level investigation console — together with KPI monitoring, filtering, structured output, and an admin panel for organizations, roles, users, and audit logs. Intelligence is read-only, with controlled handoff to external response systems rather than in-app action execution.</p>
+      <!-- ===== Design Challenge / HMW ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">Design Challenge</div>
+        <h3>How might we design an AI agent that proactively reduces cognitive load across work surfaces — without ever making the user feel out of control?</h3>
+        <p class="lede">
+          The product bet was active rather than passive AI. The design challenge was making that bet feel safe. That meant turning every model output into a draft, every suggestion into a card, every decision into something the user could edit, ignore, or undo — without diluting the agent's usefulness in the process.
+        </p>
+        <p class="hmw">"AI proposes, human disposes" — every artefact ships with confirm, edit, ignore, and reversibility built into the interface.</p>
+      </div>
 
-      <div class="two-col">
-        <div>
-          <h4>Key Challenges</h4>
-          <ul>
-            <li>Complex domain concepts requiring business-readable explanation</li>
-            <li>KPI logic that must remain defensible under realistic data availability</li>
-            <li>Severity tiering and threshold definitions consistent across views</li>
-            <li>Permission-aware visibility and export rules across roles</li>
-            <li>Translating equations, inputs, and assumptions to clients without overclaiming accuracy</li>
-          </ul>
+      <!-- ===== Target Users ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">Target Users</div>
+        <h3>Business and knowledge workers running high-frequency meetings, multi-channel communication, and concurrent project responsibilities.</h3>
+        <p class="lede">
+          Primary users are senior individual contributors and managers who context-switch many times per day, often across time zones and stakeholders. They are tool-fluent but time-constrained. They are willing to delegate drafting, but not decisions.
+        </p>
+        <div class="hero-meta">
+          <span class="chip">Frequent meetings</span>
+          <span class="chip">Multi-channel comms</span>
+          <span class="chip">Cross-timezone</span>
+          <span class="chip">Decision authority</span>
+          <span class="chip">Tool-fluent, time-poor</span>
         </div>
-        <div>
-          <h4>Product Solution Focus</h4>
-          <ul>
-            <li>Tiered decision-support structure: global view, regional view, entity-level investigation console</li>
-            <li>KPI governance: each indicator defined with formula, inputs, time window, severity threshold, and assumptions</li>
-            <li>IOC match-based data foundation with composite scoring</li>
-            <li>Filter and drill-down behavior consistent across dashboard layers</li>
-            <li>Admin panel covering organizations, roles, users, and audit logs</li>
-            <li>Permission-aware visibility and export rules</li>
+      </div>
+
+      <!-- ===== Core User Scenarios ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">Core Scenarios</div>
+        <h3>Five scenarios where the agent earns trust by reducing low-value work.</h3>
+        <div class="grid-cards">
+          <article class="feat-card agent">
+            <div class="icon-pill">01</div>
+            <h4>Meetings</h4>
+            <p>Pre-meeting agenda &amp; attendee briefing, in-meeting capture, stage summaries, post-meeting action items.</p>
+          </article>
+          <article class="feat-card agent">
+            <div class="icon-pill">02</div>
+            <h4>IM &amp; Chat</h4>
+            <p>Thread summarization, action extraction, unresolved-item tracking, inline Q&amp;A grounded in chat history.</p>
+          </article>
+          <article class="feat-card agent">
+            <div class="icon-pill">03</div>
+            <h4>Email</h4>
+            <p>Draft composition, recipient inference, importance triage, attachment-aware summaries.</p>
+          </article>
+          <article class="feat-card agent">
+            <div class="icon-pill">04</div>
+            <h4>Tasks</h4>
+            <p>Cross-channel to-do aggregation, dependency awareness, conflict detection, milestone reminders.</p>
+          </article>
+          <article class="feat-card agent">
+            <div class="icon-pill">05</div>
+            <h4>Travel</h4>
+            <p>Implicit-trip detection, multi-option itinerary plans, expense roll-ups, trip recap reports.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- ===== AI Capability Map ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">AI Capability Map</div>
+        <h3>Five collaborating AI modules over a shared perception loop and a knowledge-graph substrate.</h3>
+        <div class="capability-map">
+          <div class="capability-modules">
+            <div class="module-card">
+              <div class="module-num">M1</div>
+              <h4>Meeting Assist</h4>
+              <p>Agenda · attendees · materials · capture · stage summaries · action items</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">M2</div>
+              <h4>IM Assist</h4>
+              <p>Summarization · action extraction · unresolved tracking · grounded Q&amp;A</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">M3</div>
+              <h4>Email Assist</h4>
+              <p>Drafting · recipient inference · importance grading · attachment digest</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">M4</div>
+              <h4>Event-Task</h4>
+              <p>Cross-module aggregation · conflict detection · scheduling brain</p>
+            </div>
+            <div class="module-card">
+              <div class="module-num">M5</div>
+              <h4>Travel Assist</h4>
+              <p>Trip inference · multi-plan itineraries · expenses · recap</p>
+            </div>
+          </div>
+          <div class="capability-loop" aria-label="Perception to analysis to decision to action loop">
+            <span class="stage">Perception</span>
+            <span class="arrow">→</span>
+            <span class="stage">Analysis</span>
+            <span class="arrow">→</span>
+            <span class="stage">Decision</span>
+            <span class="arrow">→</span>
+            <span class="stage">Action (as draft)</span>
+          </div>
+          <div class="capability-base">
+            <strong>Personal &amp; Organizational Knowledge Graph</strong> — substrate for context, relationships, and personalization across modules
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Human-in-the-loop Principles ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">Human-in-the-Loop Principles</div>
+        <h3>Five principles the entire product is bound to.</h3>
+        <div class="grid-cards">
+          <article class="feat-card">
+            <div class="icon-pill">P1</div>
+            <h4>Drafts, never commits</h4>
+            <p>Every model output lands as an editable draft — meeting agenda, task card, email body, travel plan. Nothing is finalized without a confirm.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">P2</div>
+            <h4>Transparent reasoning</h4>
+            <p>Each suggestion shows a short "why" string: "Eng Lead — based on past Q1–Q3 reviews." Users can override and the system learns.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">P3</div>
+            <h4>Reversibility</h4>
+            <p>Created items remain editable; reminders are dismissible; drafts can be discarded; importance labels can be re-graded.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">P4</div>
+            <h4>Source preservation</h4>
+            <p>Original messages, emails, files, and meeting clips remain one click away from every generated artefact.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">P5</div>
+            <h4>Adjustable behaviour</h4>
+            <p>Reminder cadence, quiet hours, importance thresholds, and notification surfaces are user-configurable defaults — not hidden settings.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- ===== Mockup Gallery ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">Key Interaction Surfaces</div>
+        <h3>Five surfaces showing how the agent proposes — and how the user stays in charge.</h3>
+
+        <div class="mockup-gallery">
+
+          <!-- Mockup 1: Conversational input -->
+          <div class="mockup-item">
+            <div class="mockup">
+              <div class="mockup-screen">
+                <div class="mockup-statusbar">
+                  <span class="app-name"><span class="ai-mark">◆</span> EVA</span>
+                  <span>9:41</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="chat-meta">Today · 9:38</div>
+                  <div class="chat-row agent">
+                    <div class="chat-bubble agent">What would you like to plan?</div>
+                  </div>
+                  <div class="chat-row user">
+                    <div class="chat-bubble user">Set up a Q4 product strategy review with the eng leads next week</div>
+                  </div>
+                  <div class="chat-row agent">
+                    <div class="chat-bubble agent">Got it. Reviewing context from your past strategy meetings…</div>
+                  </div>
+                  <div class="ai-card">
+                    <div class="ai-card-header"><span class="badge">EVA</span> Meeting draft prepared</div>
+                    <div class="field-row"><span class="label">Topic</span><span class="value">Q4 product strategy review</span></div>
+                    <div class="field-row"><span class="label">Type</span><span class="value">Internal · 60 min</span></div>
+                    <div class="field-row"><span class="label">Attendees</span>
+                      <div class="field-chips">
+                        <span class="mini-chip">Eng Lead</span>
+                        <span class="mini-chip">Design Lead</span>
+                        <span class="mini-chip">PM Lead</span>
+                      </div>
+                    </div>
+                    <div class="reasoning">Suggested attendees based on Q1–Q3 strategy reviews.</div>
+                    <div class="ai-actions">
+                      <span class="btn btn-ghost">Ignore</span>
+                      <span class="btn btn-secondary">Edit</span>
+                      <span class="btn btn-primary">Confirm</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mockup-input">
+                  <div class="input-field">Type or speak…</div>
+                  <div class="mic">●</div>
+                </div>
+              </div>
+            </div>
+            <h4>Conversational Input → Draft</h4>
+            <p>Natural-language intake parses into a structured draft. The agent shows what it understood and why it picked each attendee — before anything is created.</p>
+          </div>
+
+          <!-- Mockup 2: AI interpretation card -->
+          <div class="mockup-item">
+            <div class="mockup">
+              <div class="mockup-screen">
+                <div class="mockup-statusbar">
+                  <span class="app-name"><span class="ai-mark">◆</span> EVA · IM Assist</span>
+                  <span>14:02</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="ai-card">
+                    <div class="ai-card-header"><span class="badge">EVA</span> Thread interpreted</div>
+                    <div class="field-row"><span class="label">Conversation</span><span class="value">Project Atlas · 42 msgs</span></div>
+                    <div class="field-row"><span class="label">Topic tags</span>
+                      <div class="field-chips">
+                        <span class="mini-chip">Pricing</span>
+                        <span class="mini-chip">Phase 2 scope</span>
+                        <span class="mini-chip">Vendor</span>
+                      </div>
+                    </div>
+                    <div class="field-row"><span class="label">Decisions made</span><span class="value">2</span></div>
+                    <div class="field-row"><span class="label">Action items</span><span class="value">4</span></div>
+                    <div class="field-row"><span class="label">Unresolved</span><span class="value" style="color:var(--warning);">3</span></div>
+                  </div>
+                  <div class="ai-card">
+                    <div class="ai-card-header" style="color: var(--text-muted);">Action item · for you</div>
+                    <div class="field-row"><span class="label">Title</span><span class="value">Confirm vendor pricing by Fri</span></div>
+                    <div class="field-row"><span class="label">From</span><span class="value">Sarah · 13:48</span></div>
+                    <div class="reasoning">Inferred from "Can you confirm by Friday?"</div>
+                    <div class="ai-actions">
+                      <span class="btn btn-ghost">Ignore</span>
+                      <span class="btn btn-secondary">Open source</span>
+                      <span class="btn btn-primary">Create task</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4>AI Interpretation Card</h4>
+            <p>For long threads, the agent surfaces an interpretation card — topic tags, decisions, action items, unresolved questions — each linkable back to the original message.</p>
+          </div>
+
+          <!-- Mockup 3: Suggested plan -->
+          <div class="mockup-item">
+            <div class="mockup">
+              <div class="mockup-screen">
+                <div class="mockup-statusbar">
+                  <span class="app-name"><span class="ai-mark">◆</span> Today · Tue Dec 10</span>
+                  <span>8 items</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="timeline">
+                    <div class="timeline-block">
+                      <span class="timeline-time">09:00</span>
+                      <div class="timeline-content">
+                        <div class="timeline-title">Q4 strategy review</div>
+                        <div class="timeline-meta">3 attendees<span class="dot-sep">·</span>Materials ready</div>
+                      </div>
+                    </div>
+                    <div class="timeline-block task">
+                      <span class="timeline-time">10:30</span>
+                      <div class="timeline-content">
+                        <div class="timeline-title">Draft customer email · pricing</div>
+                        <div class="timeline-meta">From action items<span class="dot-sep">·</span>Draft ready</div>
+                      </div>
+                    </div>
+                    <div class="timeline-block conflict">
+                      <span class="timeline-time">11:30</span>
+                      <div class="timeline-content">
+                        <div class="timeline-title">⚠ Conflict · Vendor call vs. design sync</div>
+                        <div class="timeline-meta">Both 30 min<span class="dot-sep">·</span>Suggested options below</div>
+                      </div>
+                    </div>
+                    <div class="timeline-block">
+                      <span class="timeline-time">14:00</span>
+                      <div class="timeline-content">
+                        <div class="timeline-title">1:1 — Reports check-in</div>
+                        <div class="timeline-meta">Notes from last 1:1 attached</div>
+                      </div>
+                    </div>
+                    <div class="timeline-block travel">
+                      <span class="timeline-time">17:00</span>
+                      <div class="timeline-content">
+                        <div class="timeline-title">Travel prep · Dubai trip</div>
+                        <div class="timeline-meta">Itinerary plan B selected</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4>Suggested Plan</h4>
+            <p>The agent stitches drafts, tasks, and meetings into one timeline. Conflicts are surfaced inline rather than after the fact. The user reorders or removes anything they don't accept.</p>
+          </div>
+
+          <!-- Mockup 4: Confirmation / Edit -->
+          <div class="mockup-item">
+            <div class="mockup">
+              <div class="mockup-screen">
+                <div class="mockup-statusbar">
+                  <span class="app-name"><span class="ai-mark">◆</span> Confirm task</span>
+                  <span>Step 1 of 1</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="form-field">
+                    <label>Title</label>
+                    <div class="field-value">Confirm vendor pricing by Friday</div>
+                  </div>
+                  <div class="form-field edited">
+                    <label>Owner · edited</label>
+                    <div class="field-value">Zoe (you)</div>
+                  </div>
+                  <div class="form-field">
+                    <label>Due</label>
+                    <div class="field-value">Fri · Dec 13 · 17:00</div>
+                  </div>
+                  <div class="form-field">
+                    <label>Linked context</label>
+                    <div class="field-value">Project Atlas · 13:48 message</div>
+                    <div class="source-pill">↗ Open in chat</div>
+                  </div>
+                  <div class="reasoning">Inferred from Sarah's message "Can you confirm by Friday?"</div>
+                  <div class="ai-actions">
+                    <span class="btn btn-ghost">Ignore</span>
+                    <span class="btn btn-secondary">Edit more</span>
+                    <span class="btn btn-primary">Confirm task</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4>Confirmation &amp; Edit</h4>
+            <p>For higher-stakes commits, a dedicated confirm screen exposes the draft, links back to source, surfaces the reasoning, and lets the user edit any field before committing.</p>
+          </div>
+
+          <!-- Mockup 5: Adaptive reminder / conflict -->
+          <div class="mockup-item">
+            <div class="mockup">
+              <div class="mockup-screen">
+                <div class="mockup-statusbar">
+                  <span class="app-name"><span class="ai-mark">◆</span> EVA · just now</span>
+                  <span>Smart reminder</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="toast">
+                    <div class="toast-title"><span class="ic">!</span> Schedule conflict detected</div>
+                    <div class="toast-body">Vendor call (11:30) overlaps with design sync (11:30). Both are 30 minutes.</div>
+                    <div class="toast-options">
+                      <div class="toast-option preferred"><span>Move design sync to 13:00 — host is free</span><span class="arrow-r">→</span></div>
+                      <div class="toast-option"><span>Decline vendor call · suggest tomorrow 10:00</span><span class="arrow-r">→</span></div>
+                      <div class="toast-option"><span>Keep both · ask team to record</span><span class="arrow-r">→</span></div>
+                    </div>
+                  </div>
+                  <div class="toast" style="border-left-color: var(--accent); margin-top: 10px;">
+                    <div class="toast-title" style="color: var(--accent);"><span class="ic" style="background: var(--accent);">i</span> Quiet hours active</div>
+                    <div class="toast-body">Holding 4 non-urgent reminders until 09:00 tomorrow. Configure thresholds anytime.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4>Adaptive Reminder · Conflict Handling</h4>
+            <p>Conflicts and reminders surface as offers, not demands. The preferred option is highlighted with reasoning; alternatives are equally first-class. Quiet hours and thresholds are part of the contract.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== Edge Cases ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">Edge Cases &amp; Tradeoffs</div>
+        <h3>What the agent does when it doesn't know — and what it never does.</h3>
+        <div class="grid-cards-2 grid-cards">
+          <article class="feat-card">
+            <div class="icon-pill">E1</div>
+            <h4>Ambiguous input</h4>
+            <p>"No relevant context found" + manual fallback. The agent does not guess — it shows what it considered and asks the user to choose.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">E2</div>
+            <h4>Topic drift in meetings</h4>
+            <p>Soft warning icon + "Guide back to topic" prompt the host can accept or dismiss. Never auto-redirects the conversation.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">E3</div>
+            <h4>Schedule conflicts</h4>
+            <p>Conflicts surface before commit, with ranked alternatives that include a "do nothing — keep both" option to preserve user agency.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">E4</div>
+            <h4>Importance misgrading</h4>
+            <p>Importance labels are colour-coded but always overrideable. The model treats user overrides as the ground truth.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">E5</div>
+            <h4>Notification fatigue</h4>
+            <p>Custom cadence (1h / 4h / daily), quiet hours, and a "hold non-urgent" rule prevent the agent from becoming noise.</p>
+          </article>
+          <article class="feat-card">
+            <div class="icon-pill">E6</div>
+            <h4>Pre-meeting briefing overload</h4>
+            <p>Open tradeoff: dense context can backfire. Briefings collapse to one card by default; deeper detail is opt-in.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- ===== MVP scope ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">MVP Scope</div>
+        <h3>Phase 2 prioritises ROI over coverage.</h3>
+        <p class="lede">Meeting Assist ships first as the highest-ROI surface and the most demanding test of the human-in-the-loop framework. IM and Email follow. Event-Task is sequenced as the integration layer once the upstream modules are stable. Travel Assist is deprioritised — high complexity, lower frequency. The knowledge graph runs through every release and compounds with usage.</p>
+        <div class="hero-meta">
+          <span class="chip accent">P1 · Meeting Assist</span>
+          <span class="chip accent">P2 · IM Assist</span>
+          <span class="chip accent">P3 · Email Assist</span>
+          <span class="chip accent">P4 · Event-Task</span>
+          <span class="chip">P5 · Travel (deprioritised)</span>
+        </div>
+      </div>
+
+      <!-- ===== Transferable patterns ===== -->
+      <div class="case-block">
+        <div class="block-eyebrow">Transferable Design Patterns</div>
+        <h3>Patterns that move from a consumer-leaning agent into enterprise AI surfaces.</h3>
+        <ul>
+          <li><strong>Card-based suggestion pattern</strong> — every AI output is a card the user can confirm, edit, or reject. Directly transferable to AI features inside operational dashboards, intake forms, and review workflows.</li>
+          <li><strong>Reasoning strings</strong> — short "why this" explanations on every recommendation. The cheapest, highest-leverage trust mechanism in AI UI.</li>
+          <li><strong>Floating-window pattern</strong> — non-modal, draggable AI surfaces that preserve user context inside third-party tools. Transferable to enterprise plug-ins and side-panels.</li>
+          <li><strong>One confirmation pattern across modules</strong> — meeting agendas, task cards, email drafts, travel plans all share the same confirm / edit / ignore / undo surface. Lowers the cognitive cost of trusting the agent.</li>
+          <li><strong>Knowledge graph as substrate</strong> — personalisation compounds across modules without explicit configuration. Pattern for enterprise platforms where users won't configure preferences but will benefit from learned behaviour.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- =============================================== -->
+    <!-- CASE 02 — Threat Intelligence Dashboard -->
+    <!-- =============================================== -->
+    <article class="case" id="case-threat-intel">
+      <div class="case-marker">
+        <span class="badge">CASE 02</span>
+        <span>Decision-Support Data Product</span>
+      </div>
+      <h2 class="case-title">Threat Intelligence Decision-Support Dashboard</h2>
+      <p class="case-subtitle">A tiered decision-support data product for sensitive intelligence — KPI governance, severity tiering, and permission-aware visibility, with controlled handoff to external response systems.</p>
+
+      <div class="case-compact">
+        <div class="case-compact-content">
+          <h5>Role</h5>
+          <p>Product Manager — dashboard logic, KPI definition and governance, PRD structuring, data-assumption alignment, and client-facing metric explanation.</p>
+
+          <h5>Design focus</h5>
+          <p>The product's value comes from KPI discipline. Every indicator is defined as a governed artefact — formula, inputs, time window, severity threshold, assumptions. Visibility is layered: global → regional → entity → multi-entity investigation, with role and organisation scope deciding what is visible at each tier.</p>
+
+          <ul class="key-list">
+            <li>Tiered drill-down (global → regional → entity) with one consistent filter and time-window model across tiers</li>
+            <li>Composite scoring driving Critical / Elevated / Normal severity tiers with shared visual language</li>
+            <li>Role × organisation visibility model — what data shows, what filters allow, what export permits</li>
             <li>Read-only intelligence with controlled handoff to external response systems</li>
             <li>Client-facing metric explanation as a first-class product output</li>
           </ul>
         </div>
+
+        <div class="case-visual">
+          <svg class="mini-svg" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tiered dashboard logic">
+            <defs>
+              <marker id="ar-ti" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#2c4a7c"/>
+              </marker>
+            </defs>
+            <!-- Filter bar -->
+            <rect x="14" y="14" width="332" height="14" rx="3" fill="#ffffff" stroke="#d6dae3"/>
+            <text x="22" y="24" font-size="8" fill="#6b7385" font-family="sans-serif" font-weight="600">FILTERS · TIME WINDOW</text>
+
+            <!-- KPI cards -->
+            <rect x="14" y="36" width="106" height="56" rx="6" fill="#ffffff" stroke="#d6dae3"/>
+            <text x="67" y="50" text-anchor="middle" font-size="7.5" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="0.6">COMPOSITE SCORE</text>
+            <polyline points="22,78 38,72 52,76 68,64 82,68 96,58 110,52" fill="none" stroke="#2c4a7c" stroke-width="1.5"/>
+
+            <rect x="128" y="36" width="106" height="56" rx="6" fill="#ffffff" stroke="#d6dae3"/>
+            <text x="181" y="50" text-anchor="middle" font-size="7.5" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="0.6">IOC MATCH VOLUME</text>
+            <rect x="138" y="70" width="6" height="18" fill="#2c4a7c"/>
+            <rect x="148" y="62" width="6" height="26" fill="#2c4a7c"/>
+            <rect x="158" y="76" width="6" height="12" fill="#2c4a7c"/>
+            <rect x="168" y="58" width="6" height="30" fill="#2c4a7c"/>
+            <rect x="178" y="68" width="6" height="20" fill="#2c4a7c"/>
+            <rect x="188" y="72" width="6" height="16" fill="#2c4a7c"/>
+            <rect x="198" y="60" width="6" height="28" fill="#2c4a7c"/>
+            <rect x="208" y="66" width="6" height="22" fill="#2c4a7c"/>
+            <rect x="218" y="72" width="6" height="16" fill="#2c4a7c"/>
+
+            <rect x="242" y="36" width="104" height="56" rx="6" fill="#ffffff" stroke="#d6dae3"/>
+            <text x="294" y="50" text-anchor="middle" font-size="7.5" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="0.6">ENTITY RISK</text>
+            <line x1="258" y1="76" x2="298" y2="62" stroke="#6b7385" stroke-width="0.7"/>
+            <line x1="298" y1="62" x2="328" y2="78" stroke="#6b7385" stroke-width="0.7"/>
+            <line x1="298" y1="62" x2="308" y2="86" stroke="#6b7385" stroke-width="0.7"/>
+            <line x1="258" y1="76" x2="308" y2="86" stroke="#6b7385" stroke-width="0.7"/>
+            <circle cx="258" cy="76" r="3.5" fill="#2c4a7c"/>
+            <circle cx="298" cy="62" r="3.5" fill="#b91c1c"/>
+            <circle cx="328" cy="78" r="3.5" fill="#2c4a7c"/>
+            <circle cx="308" cy="86" r="3.5" fill="#2c4a7c"/>
+
+            <!-- Severity tiers strip -->
+            <text x="22" y="114" font-size="8" fill="#6b7385" font-family="sans-serif" font-weight="600">SEVERITY TIERS</text>
+            <rect x="14" y="120" width="106" height="22" rx="4" fill="#fee2e2" stroke="#b91c1c"/>
+            <text x="67" y="135" text-anchor="middle" font-size="9" fill="#b91c1c" font-weight="600" font-family="sans-serif">CRITICAL</text>
+            <rect x="128" y="120" width="106" height="22" rx="4" fill="#fef3c7" stroke="#b45309"/>
+            <text x="181" y="135" text-anchor="middle" font-size="9" fill="#b45309" font-weight="600" font-family="sans-serif">ELEVATED</text>
+            <rect x="242" y="120" width="104" height="22" rx="4" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <text x="294" y="135" text-anchor="middle" font-size="9" fill="#2c4a7c" font-weight="600" font-family="sans-serif">NORMAL</text>
+
+            <!-- Drill-down hierarchy -->
+            <text x="22" y="166" font-size="8" fill="#6b7385" font-family="sans-serif" font-weight="600">DRILL-DOWN HIERARCHY</text>
+            <rect x="14" y="174" width="62" height="24" rx="4" fill="#f7f8fa" stroke="#e5e8ee"/>
+            <text x="45" y="190" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">Global</text>
+            <line x1="76" y1="186" x2="92" y2="186" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#ar-ti)"/>
+            <rect x="94" y="174" width="74" height="24" rx="4" fill="#f7f8fa" stroke="#e5e8ee"/>
+            <text x="131" y="190" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">Regional</text>
+            <line x1="168" y1="186" x2="184" y2="186" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#ar-ti)"/>
+            <rect x="186" y="174" width="62" height="24" rx="4" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <text x="217" y="190" text-anchor="middle" font-size="9" fill="#2c4a7c" font-weight="600" font-family="sans-serif">Entity</text>
+            <line x1="248" y1="186" x2="264" y2="186" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#ar-ti)"/>
+            <rect x="266" y="174" width="80" height="24" rx="4" fill="#f7f8fa" stroke="#e5e8ee"/>
+            <text x="306" y="190" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">Multi-entity</text>
+
+            <!-- Permission/output base -->
+            <rect x="14" y="218" width="332" height="28" rx="6" fill="#fafbfc" stroke="#d6dae3" stroke-dasharray="3,3"/>
+            <text x="180" y="236" text-anchor="middle" font-size="9" fill="#6b7385" font-family="sans-serif" font-style="italic">role × org scope · permission-aware filters &amp; export · external action handoff</text>
+          </svg>
+        </div>
       </div>
-
-      <h4>Key Product Logic / Design Highlights</h4>
-      <ul>
-        <li>KPI dictionary as a governed artifact — every indicator documented with formula, inputs, time windows, severity thresholds, and assumptions</li>
-        <li>Drill-down hierarchy: global → regional → entity → multi-entity investigation, with a consistent filter and time-window model across tiers</li>
-        <li>Severity tiers (Critical / Elevated / Normal) driven by composite score thresholds, sharing one visual language across views</li>
-        <li>Visibility model linking role and organization scope to visible data, available filters, and export rights</li>
-        <li>Documentation pattern translating technical metrics into business language for senior stakeholders</li>
-      </ul>
-
-      <h4>Selected Deliverables</h4>
-      <div class="deliverables">
-        <span class="deliverable">Dashboard PRD with full KPI dictionary</span>
-        <span class="deliverable">Tiered IA &amp; drill-down spec (global · regional · entity)</span>
-        <span class="deliverable">KPI calculation &amp; data dependency reference</span>
-        <span class="deliverable">Severity tier &amp; threshold reference</span>
-        <span class="deliverable">Admin panel spec (orgs · roles · users · logs)</span>
-        <span class="deliverable">Permission &amp; export rules matrix</span>
-        <span class="deliverable">Client-facing metric explanation document</span>
-      </div>
-
-      <p class="case-demonstrates">
-        <strong>What this case demonstrates:</strong> Data analytics product thinking · KPI governance and definition discipline · tiered decision-support architecture · permission-aware data visibility · technical-to-business translation for senior audiences.
-      </p>
     </article>
 
-    <!-- ===== Case 02 — Drone Regulation & Monitoring Platform Projects ===== -->
-    <article class="case">
-      <div class="case-header">
-        <span class="case-number">CASE 02</span>
-        <h3 class="case-title">Drone Regulation &amp; Monitoring Platform Projects</h3>
+    <!-- =============================================== -->
+    <!-- CASE 03 — Drone Regulation Platforms -->
+    <!-- =============================================== -->
+    <article class="case" id="case-drone">
+      <div class="case-marker">
+        <span class="badge">CASE 03</span>
+        <span>Public-Sector Platform Projects</span>
       </div>
-      <p class="case-subtitle">Government / public-sector drone regulation platforms — public service journey, real-time monitoring dashboard, and governance / RBAC foundation.</p>
+      <h2 class="case-title">Drone Regulation &amp; Monitoring Platforms</h2>
+      <p class="case-subtitle">A series of related public-sector platform projects spanning audience-tailored service journeys, regulator-facing real-time monitoring, and a governance / RBAC foundation — with AI add-ons positioned as supporting capabilities under human-in-the-loop review.</p>
 
-      <div class="case-summary">
-        <div class="case-summary-item">
-          <h5>Case Focus</h5>
-          <p>A series of drone regulation-related platform projects spanning public-facing service applications, regulator-facing operational monitoring, and platform governance.</p>
-        </div>
-        <div class="case-summary-item">
-          <h5>My Contribution</h5>
-          <p>Product Lead responsible for structured product logic across three connected areas: public service journey, real-time monitoring dashboard, and governance / RBAC foundation, with shared lifecycle, role, and data-scope considerations.</p>
-        </div>
-        <div class="case-summary-item">
-          <h5>Core Product Value</h5>
-          <p>Translated complex drone regulation scenarios into clearer service flows, operational visibility, and governance-ready product structures.</p>
-        </div>
-      </div>
+      <div class="case-compact">
+        <div class="case-compact-content">
+          <h5>Role</h5>
+          <p>Product Lead — structured product logic across three connected areas, with shared lifecycle, role, and data-scope considerations.</p>
 
-      <!-- Diagram: Three connected platform areas + AI add-ons -->
-      <div class="diagram-panel" aria-label="Drone regulation platform areas diagram">
-        <p class="diagram-title">Drone Regulation Platform Areas + AI Add-ons</p>
-        <div class="layer-diagram">
-          <div class="layer-row">
-            <span class="layer-label">Area 1</span>
-            <span class="layer-name">Public Drone Service Journey</span>
-            <div class="layer-nodes">
-              <span class="layer-node">Audience Portal</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Service Application</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Multi-entity Approval</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Service Result</span>
-            </div>
-          </div>
-          <div class="layer-connector" aria-hidden="true">▼</div>
-          <div class="layer-row">
-            <span class="layer-label">Area 2</span>
-            <span class="layer-name">Real-time Drone Monitoring Dashboard</span>
-            <div class="layer-nodes">
-              <span class="layer-node">Vendor / Integrated Data</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Map View</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Statistics</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Drill-down Table</span>
-            </div>
-          </div>
-          <div class="layer-connector" aria-hidden="true">▼</div>
-          <div class="layer-row">
-            <span class="layer-label">Area 3</span>
-            <span class="layer-name">Governance &amp; RBAC Foundation</span>
-            <div class="layer-nodes">
-              <span class="layer-node">Organization</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Role</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Permission</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Data Scope</span>
-              <span class="layer-arrow" aria-hidden="true">→</span>
-              <span class="layer-node">Audit</span>
-            </div>
-          </div>
-        </div>
-        <div class="flow-supports" style="margin-top: var(--space-md);">
-          <span class="support-chip">Audience Types: Individual · Business · Manufacturer · Distributor · POS · Gov</span>
-          <span class="support-chip">AI-assisted Intake</span>
-          <span class="support-chip">AI-assisted Review</span>
-          <span class="support-chip">AI Self-service Assistant</span>
-        </div>
-        <p class="diagram-caption">Three connected project areas spanning public-facing, regulator-facing, and governance-facing capabilities, with AI add-ons positioned as cross-cutting capabilities under shared governance and human-in-the-loop review.</p>
-      </div>
+          <h5>Design focus</h5>
+          <p>The three areas share one application engine but serve very different audiences. The design challenge was hiding multi-entity complexity behind a single predictable public-facing journey, while giving regulators an operational view with map → statistics → drill-down consistency. AI add-ons (intake, review, self-service) sit on top of this foundation, never replacing the human review step.</p>
 
-      <h4>Context</h4>
-      <p>A set of related drone regulation platform projects supporting drone-related public services, real-time operational monitoring, regulatory coordination, and platform governance across multiple government entities and service dependencies — with AI add-ons scoped as supporting capabilities for intake, review, and self-service.</p>
-
-      <h4>Project Areas &amp; Product Logic</h4>
-      <div class="matrix-wrap">
-        <table class="matrix">
-          <thead>
-            <tr>
-              <th>Area</th>
-              <th>Product</th>
-              <th>Primary Users</th>
-              <th>Core Focus</th>
-              <th>Key Product Logic</th>
-              <th>Selected Deliverables</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="layer-cell" data-label="Area">Area 1 — Public Drone Service Journey</td>
-              <td data-label="Product"><span class="product-name">Public Service Application</span></td>
-              <td data-label="Primary Users">Public users across multiple audience types: individual, business, manufacturer, distributor, point of sale, government partner</td>
-              <td data-label="Core Focus">Audience-tailored service journeys, application lifecycle, multi-entity approval, real-name registration, certificate and document workflows, consistent authentication</td>
-              <td data-label="Key Product Logic">Audience-specific portals sharing one application and approval engine; single predictable journey hiding multi-entity complexity; phased integration without breaking UX; consistent auth entry across surfaces</td>
-              <td data-label="Selected Deliverables">Audience-by-audience journey maps · lifecycle states · multi-entity approval flow · auth entry logic</td>
-            </tr>
-            <tr>
-              <td class="layer-cell" data-label="Area">Area 2 — Real-time Drone Monitoring Dashboard</td>
-              <td data-label="Product"><span class="product-name">Real-time Monitoring Dashboard</span></td>
-              <td data-label="Primary Users">Regulators, operations teams</td>
-              <td data-label="Core Focus">Map-based monitoring, near-real-time activity, trajectory supervision, airspace context, area filters, statistics, drill-down, structured output</td>
-              <td data-label="Key Product Logic">Layered interaction: map → statistic cards → pop-up detail → drill-down table; consistent filter model across views; vendor-data assumptions made explicit; warning settings tied to operational thresholds</td>
-              <td data-label="Selected Deliverables">Dashboard PRD · monitoring data flow · layout &amp; interaction spec · drill-down &amp; structured output rules · warning configuration</td>
-            </tr>
-            <tr>
-              <td class="layer-cell" data-label="Area">Area 3 — Governance &amp; RBAC Foundation</td>
-              <td data-label="Product"><span class="product-name">Governance &amp; RBAC Framework</span></td>
-              <td data-label="Primary Users">Platform admins, partner organizations</td>
-              <td data-label="Core Focus">Organization model, role and permission model, data scope, auditability, content management, dynamic forms and BPM extensibility</td>
-              <td data-label="Key Product Logic">Permission expressed as Module + Action + Data Scope + Audit Requirement; organization type and capability separated from user role; Phase 1 simplicity with future extensibility for new audiences and modules</td>
-              <td data-label="Selected Deliverables">Organization &amp; role model · permission matrix · data scope reference · audit requirements · dynamic forms &amp; BPM patterns</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h4>Cross-cutting AI Add-ons</h4>
-      <p>Alongside the three connected project areas, the work was scoped with AI add-ons positioned as supporting capabilities under human-in-the-loop review: AI-assisted intake (auto-extraction of structured fields from uploaded documents and certificates, with expiry monitoring), AI-assisted review (eligibility and qualification checks against application criteria), and an AI self-service assistant for common user questions. All operate under the same governance, data-scope, and audit rules as the rest of the platforms.</p>
-
-      <h4>Key Challenges Across These Projects</h4>
-      <ul>
-        <li>Multi-entity approval and integration dependencies, often phased</li>
-        <li>Audience-specific journeys (six distinct user types) sharing one application and approval engine</li>
-        <li>Consistent authentication and journey logic across surfaces</li>
-        <li>Operational dashboards balancing high-level overview and detailed investigation</li>
-        <li>Governance that is clear to business and technical teams alike</li>
-        <li>AI add-ons scoped responsibly, with explicit human-in-the-loop checkpoints</li>
-        <li>Phase 1 deliverability without closing the door on future scale</li>
-      </ul>
-
-      <p class="case-demonstrates">
-        <strong>What this case demonstrates:</strong> Public-sector drone regulation platform design · operational monitoring and real-time visibility · multi-entity integration · governance and RBAC modeling · AI add-on scoping under human-in-the-loop review · structuring related platform projects with shared logic.
-      </p>
-    </article>
-
-    <!-- ===== Case 03 — Aviation (workflow / governance platform) ===== -->
-    <article class="case">
-      <div class="case-header">
-        <span class="case-number">CASE 03</span>
-        <h3 class="case-title">Aviation Request &amp; Operations Platform</h3>
-      </div>
-      <p class="case-subtitle">A workflow and governance platform for aviation request operations — mobile requester app, web operations console, and supporting governance foundation.</p>
-
-      <div class="case-summary">
-        <div class="case-summary-item">
-          <h5>Case Focus</h5>
-          <p>A government-grade workflow and governance platform combining mobile request submission with a web operations console, delivered in phased stages.</p>
-        </div>
-        <div class="case-summary-item">
-          <h5>My Contribution</h5>
-          <p>Acting Client Owner responsible for requirement clarification, workflow structuring, PRD authoring, stakeholder alignment, UAT support, and delivery coordination.</p>
-        </div>
-        <div class="case-summary-item">
-          <h5>Core Product Value</h5>
-          <p>A predictable, auditable request lifecycle that operates safely under sensitivity and time constraints across two distinct user surfaces.</p>
-        </div>
-      </div>
-
-      <!-- Diagram: Request Lifecycle -->
-      <div class="diagram-panel" aria-label="Aviation request lifecycle diagram">
-        <p class="diagram-title">Request Lifecycle — End to End</p>
-        <div class="flow-diagram">
-          <div class="flow-node">Requester<br/>Mobile App</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">Request<br/>Submission</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">Operations<br/>Review</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node accent">Approval<br/>Workflow</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">Notification</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">Request<br/>Completion</div>
-        </div>
-        <div class="flow-supports">
-          <span class="support-chip">Authentication / SSO</span>
-          <span class="support-chip">Role-based Access</span>
-          <span class="support-chip">Bilingual EN / AR (RTL)</span>
-          <span class="support-chip">3-channel Notifications</span>
-          <span class="support-chip">Audit Trail</span>
-          <span class="support-chip">UAT / Production Separation</span>
-        </div>
-        <p class="diagram-caption">Lifecycle states (Draft → Under Review → Confirmed → Completed, with Cancelled / Unable as side states) with cross-cutting governance applied at every stage.</p>
-      </div>
-
-      <h4>Context</h4>
-      <p>The platform supports flight request submission, operational review, multi-step approval, principal-subject and requester profile management, document exchange (briefing documents and passenger manifests), and administrative control across mobile and web clients in a sensitive aviation operation scenario. Delivery was structured in phased stages — access and data foundation, request lifecycle, and monitoring &amp; oversight — so each release carried a defined capability set into UAT and production.</p>
-
-      <div class="two-col">
-        <div>
-          <h4>Key Challenges</h4>
-          <ul>
-            <li>Complex request lifecycle with multiple approval states and conditional transitions</li>
-            <li>Distinct user groups across mobile (requester-facing) and web console (operations and admin)</li>
-            <li>High sensitivity around access control, auditability, and operational accuracy</li>
-            <li>Bilingual interface requirements across all surfaces</li>
-            <li>Clear separation between UAT and production environments</li>
-            <li>Notification logic tied to time-sensitive operations</li>
+          <ul class="key-list">
+            <li>Six audience portals (individual, business, manufacturer, distributor, point of sale, government partner) sharing one approval engine</li>
+            <li>Operational monitoring: map → statistic cards → pop-up detail → drill-down table, with consistent filter logic</li>
+            <li>Governance: Module + Action + Data Scope + Audit Requirement permission model</li>
+            <li>AI add-ons (intake, review, self-service) explicitly scoped under human-in-the-loop checkpoints</li>
+            <li>Phase 1 deliverability without closing the door on future scale</li>
           </ul>
         </div>
-        <div>
-          <h4>Product Solution Focus</h4>
-          <ul>
-            <li>Mobile request submission, tracking, and briefing-document download</li>
-            <li>Web console for review, processing, approval, and document upload</li>
-            <li>Principal-subject and requester profile linkage with traceability</li>
-            <li>Four-role access model (operations staff, management, OPS admin, super admin) with module-level capability mapping</li>
-            <li>Three-channel notifications: in-app inbox, push / banner, SMS</li>
-            <li>Bilingual EN / AR interface with RTL support across surfaces</li>
-            <li>UAT readiness and structured production transition</li>
-          </ul>
+
+        <div class="case-visual">
+          <svg class="mini-svg" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drone regulation platform areas">
+            <!-- Area 1 -->
+            <rect x="14" y="14" width="332" height="60" rx="8" fill="#ffffff" stroke="#d6dae3"/>
+            <rect x="14" y="14" width="4" height="60" fill="#2c4a7c"/>
+            <text x="28" y="34" font-size="10" fill="#2c4a7c" font-family="sans-serif" font-weight="700">AREA 1</text>
+            <text x="28" y="48" font-size="8.5" fill="#0f1419" font-family="sans-serif" font-weight="600">Public Drone Service Journey</text>
+            <text x="28" y="62" font-size="7.5" fill="#6b7385" font-family="sans-serif">6 audience portals · multi-entity approval</text>
+            <circle cx="200" cy="44" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <circle cx="232" cy="44" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <circle cx="264" cy="44" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <circle cx="296" cy="44" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <circle cx="328" cy="44" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <line x1="206" y1="44" x2="226" y2="44" stroke="#6b7385" stroke-width="1"/>
+            <line x1="238" y1="44" x2="258" y2="44" stroke="#6b7385" stroke-width="1"/>
+            <line x1="270" y1="44" x2="290" y2="44" stroke="#6b7385" stroke-width="1"/>
+            <line x1="302" y1="44" x2="322" y2="44" stroke="#6b7385" stroke-width="1"/>
+
+            <!-- Connector -->
+            <line x1="180" y1="74" x2="180" y2="88" stroke="#2c4a7c" stroke-dasharray="3,3" stroke-width="1.2"/>
+
+            <!-- Area 2 -->
+            <rect x="14" y="90" width="332" height="60" rx="8" fill="#ffffff" stroke="#d6dae3"/>
+            <rect x="14" y="90" width="4" height="60" fill="#2c4a7c"/>
+            <text x="28" y="110" font-size="10" fill="#2c4a7c" font-family="sans-serif" font-weight="700">AREA 2</text>
+            <text x="28" y="124" font-size="8.5" fill="#0f1419" font-family="sans-serif" font-weight="600">Real-time Monitoring Dashboard</text>
+            <text x="28" y="138" font-size="7.5" fill="#6b7385" font-family="sans-serif">map · statistics · drill-down · structured output</text>
+            <rect x="200" y="110" width="20" height="28" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <rect x="226" y="110" width="32" height="28" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <rect x="264" y="110" width="44" height="28" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <rect x="314" y="110" width="32" height="28" fill="#eaf0fa" stroke="#2c4a7c"/>
+
+            <!-- Connector -->
+            <line x1="180" y1="150" x2="180" y2="164" stroke="#2c4a7c" stroke-dasharray="3,3" stroke-width="1.2"/>
+
+            <!-- Area 3 -->
+            <rect x="14" y="166" width="332" height="60" rx="8" fill="#ffffff" stroke="#d6dae3"/>
+            <rect x="14" y="166" width="4" height="60" fill="#2c4a7c"/>
+            <text x="28" y="186" font-size="10" fill="#2c4a7c" font-family="sans-serif" font-weight="700">AREA 3</text>
+            <text x="28" y="200" font-size="8.5" fill="#0f1419" font-family="sans-serif" font-weight="600">Governance &amp; RBAC Foundation</text>
+            <text x="28" y="214" font-size="7.5" fill="#6b7385" font-family="sans-serif">organization · role · permission · scope · audit</text>
+            <circle cx="200" cy="196" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <circle cx="232" cy="196" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <circle cx="264" cy="196" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <circle cx="296" cy="196" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <circle cx="328" cy="196" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+
+            <!-- AI add-ons strip -->
+            <rect x="14" y="234" width="332" height="20" rx="10" fill="#eef0ff" stroke="#4f46e5" stroke-dasharray="3,3"/>
+            <text x="180" y="247" text-anchor="middle" font-size="8" fill="#4f46e5" font-family="sans-serif" font-weight="600">AI ADD-ONS · intake · review · self-service · under human-in-the-loop</text>
+          </svg>
         </div>
       </div>
-
-      <h4>Key Product Logic / Design Highlights</h4>
-      <ul>
-        <li>Request lifecycle with clearly defined state transitions (Draft → Under Review → Confirmed → Completed, with Cancelled / Unable as side states) and per-state ownership</li>
-        <li>Four-role × multi-module RBAC matrix mapping every capability across mobile and web surfaces</li>
-        <li>Notification trigger model linked to lifecycle states and operational sensitivity, delivered across three channels</li>
-        <li>Bilingual content (EN / AR with RTL) handled at the product layer, not as an afterthought</li>
-        <li>End-to-end audit trail with filterable logs for governance and compliance</li>
-      </ul>
-
-      <h4>Selected Deliverables</h4>
-      <div class="deliverables">
-        <span class="deliverable">End-to-end PRD (mobile + web console)</span>
-        <span class="deliverable">Phased delivery plan (foundation · lifecycle · monitoring)</span>
-        <span class="deliverable">Request lifecycle &amp; state-transition spec</span>
-        <span class="deliverable">Role / user-group capability matrix</span>
-        <span class="deliverable">Notification architecture (in-app · push · SMS)</span>
-        <span class="deliverable">Bilingual content &amp; RTL guideline</span>
-        <span class="deliverable">UAT plan &amp; production transition checklist</span>
-      </div>
-
-      <p class="case-demonstrates">
-        <strong>What this case demonstrates:</strong> Workflow and governance platform design · mobile + admin console as one coherent system · approval lifecycle design · RBAC modeling · delivery feasibility under sensitivity constraints.
-      </p>
     </article>
 
-    <!-- ===== Case 04 — Consumer AI Assistant ===== -->
-    <article class="case">
-      <div class="case-header">
-        <span class="case-number">CASE 04</span>
-        <h3 class="case-title">Consumer AI Assistant — Agent-driven Product Exploration</h3>
+    <!-- =============================================== -->
+    <!-- CASE 04 — Aviation Workflow -->
+    <!-- =============================================== -->
+    <article class="case" id="case-aviation">
+      <div class="case-marker">
+        <span class="badge">CASE 04</span>
+        <span>Government Workflow Platform</span>
       </div>
-      <p class="case-subtitle">A freelance AI assistant exploration — agent capabilities mapped to real consumer workflows under human-in-the-loop control.</p>
+      <h2 class="case-title">Aviation Request &amp; Operations Platform</h2>
+      <p class="case-subtitle">A workflow and governance platform pairing a mobile requester app with a web operations console — bilingual EN / AR, four-role RBAC, three-channel notifications, and a phased delivery plan structured around foundation, lifecycle, and monitoring.</p>
 
-      <div class="case-summary">
-        <div class="case-summary-item">
-          <h5>Case Focus</h5>
-          <p>A self-initiated AI assistant exploration mapping agent capabilities to real consumer workflows and edge cases, with explicit human-in-the-loop control.</p>
+      <div class="case-compact">
+        <div class="case-compact-content">
+          <h5>Role</h5>
+          <p>Acting Client Owner — requirement clarification, workflow structuring, PRD authoring, stakeholder alignment, UAT support, and delivery coordination.</p>
+
+          <h5>Design focus</h5>
+          <p>Two surfaces — a mobile requester app and a web operations console — had to behave as one product. Every capability was mapped across both, with a state machine (Draft → Under Review → Confirmed → Completed, with Cancelled / Unable as side states) shared between them. Notifications were modelled as a three-channel system tied to lifecycle stages. Bilingual EN / AR with RTL was treated as a product-layer concern, not a localisation pass.</p>
+
+          <ul class="key-list">
+            <li>Lifecycle states with clear ownership and side branches</li>
+            <li>Four-role × multi-module RBAC matrix across mobile + web</li>
+            <li>Three-channel notifications (in-app · push · SMS) mapped to lifecycle stages</li>
+            <li>Bilingual EN / AR with RTL handled at the product layer</li>
+            <li>Phased delivery (foundation · lifecycle · monitoring) carried into UAT and production</li>
+          </ul>
         </div>
-        <div class="case-summary-item">
-          <h5>My Contribution</h5>
-          <p>Consumer AI Product Designer (freelance) — end-to-end product structure, core user scenarios, agent capability mapping, MVP boundary scoping, and interaction logic.</p>
-        </div>
-        <div class="case-summary-item">
-          <h5>Core Product Value</h5>
-          <p>A workflow pattern in which the AI agent proposes and the user decides — predictable, trustworthy, and transferable to AI features inside larger operational products.</p>
+
+        <div class="case-visual">
+          <svg class="mini-svg" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aviation request lifecycle">
+            <defs>
+              <marker id="ar-av" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#2c4a7c"/>
+              </marker>
+            </defs>
+            <text x="22" y="24" font-size="9" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="1">REQUEST LIFECYCLE</text>
+
+            <!-- Lifecycle nodes -->
+            <rect x="14"  y="40" width="58" height="32" rx="6" fill="#ffffff" stroke="#d6dae3"/>
+            <text x="43"  y="60" text-anchor="middle" font-size="9" fill="#0f1419" font-family="sans-serif">Draft</text>
+            <line x1="74"  y1="56" x2="86"  y2="56" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#ar-av)"/>
+
+            <rect x="88"  y="40" width="62" height="32" rx="6" fill="#ffffff" stroke="#d6dae3"/>
+            <text x="119" y="60" text-anchor="middle" font-size="9" fill="#0f1419" font-family="sans-serif">Review</text>
+            <line x1="152" y1="56" x2="164" y2="56" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#ar-av)"/>
+
+            <rect x="166" y="40" width="66" height="32" rx="6" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <text x="199" y="60" text-anchor="middle" font-size="9" fill="#2c4a7c" font-family="sans-serif" font-weight="600">Confirmed</text>
+            <line x1="234" y1="56" x2="246" y2="56" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#ar-av)"/>
+
+            <rect x="248" y="40" width="56" height="32" rx="6" fill="#ffffff" stroke="#d6dae3"/>
+            <text x="276" y="60" text-anchor="middle" font-size="9" fill="#0f1419" font-family="sans-serif">Notify</text>
+            <line x1="306" y1="56" x2="318" y2="56" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#ar-av)"/>
+
+            <rect x="320" y="40" width="26" height="32" rx="6" fill="#ffffff" stroke="#d6dae3"/>
+            <text x="333" y="60" text-anchor="middle" font-size="9" fill="#0f1419" font-family="sans-serif">Done</text>
+
+            <!-- Side branch -->
+            <text x="22" y="98" font-size="8" fill="#6b7385" font-family="sans-serif" font-style="italic">side branches · Cancelled / Unable</text>
+            <line x1="119" y1="72" x2="119" y2="92" stroke="#b91c1c" stroke-width="1.2" stroke-dasharray="2,2"/>
+            <line x1="119" y1="92" x2="170" y2="92" stroke="#b91c1c" stroke-width="1.2" stroke-dasharray="2,2"/>
+            <rect x="170" y="82" width="60" height="20" rx="4" fill="#fee2e2" stroke="#b91c1c"/>
+            <text x="200" y="96" text-anchor="middle" font-size="8" fill="#b91c1c" font-family="sans-serif" font-weight="600">Cancelled</text>
+
+            <!-- Notification channels -->
+            <text x="22" y="130" font-size="8" fill="#6b7385" font-family="sans-serif" font-weight="600">3-CHANNEL NOTIFICATION</text>
+            <rect x="14"  y="138" width="106" height="24" rx="6" fill="#f7f8fa" stroke="#e5e8ee"/>
+            <text x="67" y="153" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">In-app inbox</text>
+            <rect x="128" y="138" width="106" height="24" rx="6" fill="#f7f8fa" stroke="#e5e8ee"/>
+            <text x="181" y="153" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">Push / Banner</text>
+            <rect x="242" y="138" width="104" height="24" rx="6" fill="#f7f8fa" stroke="#e5e8ee"/>
+            <text x="294" y="153" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">SMS</text>
+
+            <!-- Governance chips -->
+            <text x="22" y="184" font-size="8" fill="#6b7385" font-family="sans-serif" font-weight="600">GOVERNANCE</text>
+            <rect x="14"  y="192" width="78" height="22" rx="11" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <text x="53"  y="207" text-anchor="middle" font-size="9" fill="#2c4a7c" font-family="sans-serif">Auth / SSO</text>
+            <rect x="100" y="192" width="78" height="22" rx="11" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <text x="139" y="207" text-anchor="middle" font-size="9" fill="#2c4a7c" font-family="sans-serif">RBAC × 4</text>
+            <rect x="186" y="192" width="78" height="22" rx="11" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <text x="225" y="207" text-anchor="middle" font-size="9" fill="#2c4a7c" font-family="sans-serif">Audit trail</text>
+            <rect x="272" y="192" width="74" height="22" rx="11" fill="#eaf0fa" stroke="#2c4a7c"/>
+            <text x="309" y="207" text-anchor="middle" font-size="9" fill="#2c4a7c" font-family="sans-serif">EN / AR RTL</text>
+
+            <!-- Phase strip -->
+            <rect x="14" y="226" width="332" height="20" rx="10" fill="#fafbfc" stroke="#d6dae3" stroke-dasharray="3,3"/>
+            <text x="180" y="239" text-anchor="middle" font-size="8" fill="#6b7385" font-family="sans-serif" font-weight="600">PHASED DELIVERY · foundation → lifecycle → monitoring</text>
+          </svg>
         </div>
       </div>
-
-      <!-- Diagram: Agent Workflow Loop -->
-      <div class="diagram-panel" aria-label="Consumer AI assistant workflow diagram">
-        <p class="diagram-title">Agent Workflow — Continuous Human-in-the-Loop</p>
-        <div class="flow-diagram">
-          <div class="flow-node">Natural Language<br/>User Input</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node ai">Agent<br/>Parsing</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node ai">Suggested<br/>Plan / Action</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node user">User<br/>Confirmation</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">Reminder /<br/>Adjustment</div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="flow-node">Review &amp;<br/>Insight</div>
-          <div class="flow-loop-back">↻ Loops back to User Input — continuous cycle</div>
-        </div>
-        <div class="flow-legend">
-          <span><span class="legend-dot ai"></span>Agent suggests</span>
-          <span><span class="legend-dot user"></span>User decides</span>
-        </div>
-        <div class="flow-supports">
-          <span class="support-chip">Human-in-the-loop Control</span>
-          <span class="support-chip">Edge-case Handling</span>
-          <span class="support-chip">Context-aware Reminders</span>
-        </div>
-        <p class="diagram-caption">A continuous loop where the agent proposes and the user remains the decision-maker — a transferable pattern for AI inside operational products.</p>
-      </div>
-
-      <h4>Context &amp; Key Patterns</h4>
-      <p>A freelance AI assistant exploration covering end-to-end product structure, core user scenarios, agent capability mapping, MVP scoping, and interaction logic — with consumer planning and reminder workflows as representative scenarios for testing agent behavior under human-in-the-loop control. The case refined product patterns that translate to AI features in larger operational and enterprise products.</p>
-
-      <ul>
-        <li><strong>Human-in-the-loop control</strong> — a consistent confirmation pattern across modules so the user always remains the final decision-maker.</li>
-        <li><strong>Natural language intake → structured attributes</strong> — free-form input parsed into task fields, with the user confirming the parsed result.</li>
-        <li><strong>Edge cases as a product feature</strong> — conflicts and ambiguous inputs surfaced with suggested adjustments rather than as error states.</li>
-        <li><strong>Context-aware reminders</strong> — triggers driven by task context (dependency, deadline proximity) rather than fixed time alerts only.</li>
-      </ul>
-
-      <h4>Selected Deliverables</h4>
-      <div class="deliverables">
-        <span class="deliverable">Product structure &amp; user scenarios</span>
-        <span class="deliverable">Agent capability map</span>
-        <span class="deliverable">MVP scope &amp; interaction logic</span>
-        <span class="deliverable">Information architecture &amp; key flows</span>
-        <span class="deliverable">Mobile / web mockups</span>
-      </div>
-
-      <p class="case-demonstrates">
-        <strong>What this case demonstrates:</strong> Consumer AI assistant product design · agent capability mapping · MVP scoping under feasibility constraints · human-in-the-loop product logic · transferability of AI patterns from consumer to operational products.
-      </p>
     </article>
 
   </div>
 </section>
 
-<!-- ============== METHOD ============== -->
-<section id="method">
+<!-- ============== APPROACH ============== -->
+<section id="approach">
   <div class="container">
-    <div class="section-eyebrow">Working Method</div>
-    <h2 class="section-title">How I Work</h2>
-    <p class="section-intro">A five-stage method, with each stage producing outputs that reduce ambiguity for the next.</p>
+    <div class="section-eyebrow">Design Approach</div>
+    <h2 class="section-title">How I work — especially when AI is part of the product.</h2>
+    <p class="section-intro">My approach is structured around five stages. Each one produces outputs that reduce ambiguity for the next.</p>
 
-    <div class="process-grid">
-      <div class="process-card">
-        <div class="step-num">STEP 01</div>
-        <h3>Discover</h3>
-        <p>Understand business context, user roles, operational pain points, stakeholder expectations, and system constraints.</p>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="step-num">Step 01</div>
+        <h4>Perceive</h4>
+        <p>Understand business context, user roles, operational pain points, data sources, and where AI can add value — and where it shouldn't.</p>
       </div>
-      <div class="process-card">
-        <div class="step-num">STEP 02</div>
-        <h3>Structure</h3>
-        <p>Convert fragmented needs into product scope: workflow, data logic, permissions, and phased delivery boundaries.</p>
+      <div class="approach-card">
+        <div class="step-num">Step 02</div>
+        <h4>Structure</h4>
+        <p>Convert fragmented needs into product scope: workflow, data logic, permissions, AI capability boundaries, and phased delivery.</p>
       </div>
-      <div class="process-card">
-        <div class="step-num">STEP 03</div>
-        <h3>Design</h3>
-        <p>Produce PRDs, user flows, dashboard structures, permission models, prototypes, and client-facing materials.</p>
+      <div class="approach-card">
+        <div class="step-num">Step 03</div>
+        <h4>Design</h4>
+        <p>PRDs, user flows, dashboard structures, RBAC models, AI behaviour specs, and prototypes for both happy paths and edge cases.</p>
       </div>
-      <div class="process-card">
-        <div class="step-num">STEP 04</div>
-        <h3>Align</h3>
-        <p>Coordinate clients, technical leads, vendors, internal teams, and management to clarify assumptions and reduce ambiguity.</p>
+      <div class="approach-card">
+        <div class="step-num">Step 04</div>
+        <h4>Align</h4>
+        <p>Coordinate clients, technical leads, vendors, and management to clarify assumptions, surface tradeoffs, and reduce interpretation gaps.</p>
       </div>
-      <div class="process-card">
-        <div class="step-num">STEP 05</div>
-        <h3>Deliver</h3>
-        <p>Support UAT, issue clarification, acceptance alignment, and production readiness.</p>
+      <div class="approach-card">
+        <div class="step-num">Step 05</div>
+        <h4>Deliver</h4>
+        <p>UAT support, issue clarification, acceptance alignment, and production readiness. Design owned end-to-end, not handed off.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== TOOLS ============== -->
-<section id="tools">
+<!-- ============== TOOLKIT ============== -->
+<section id="toolkit">
   <div class="container">
     <div class="section-eyebrow">Toolkit</div>
-    <h2 class="section-title">Tools &amp; Skills</h2>
+    <h2 class="section-title">Tools and skills I work with.</h2>
 
     <div class="tool-group">
       <h4>Design &amp; Prototyping</h4>
@@ -1412,13 +1788,13 @@
     <div class="tool-group">
       <h4>AI-Augmented Design</h4>
       <div class="chip-row">
-        <span class="chip">Claude</span>
-        <span class="chip">ChatGPT</span>
-        <span class="chip">Cursor</span>
-        <span class="chip">v0</span>
-        <span class="chip">Lovable</span>
-        <span class="chip">Figma AI</span>
-        <span class="chip">Midjourney</span>
+        <span class="chip agent">Claude</span>
+        <span class="chip agent">ChatGPT</span>
+        <span class="chip agent">Cursor</span>
+        <span class="chip agent">v0</span>
+        <span class="chip agent">Lovable</span>
+        <span class="chip agent">Figma AI</span>
+        <span class="chip agent">Midjourney</span>
       </div>
     </div>
 
@@ -1437,272 +1813,17 @@
     <div class="tool-group">
       <h4>Product Skills</h4>
       <div class="chip-row">
-        <span class="chip">PRD writing</span>
+        <span class="chip">AI agent design</span>
+        <span class="chip">Human-in-the-loop UX</span>
         <span class="chip">Dashboard &amp; KPI definition</span>
-        <span class="chip">Decision-support product design</span>
-        <span class="chip">Workflow design</span>
+        <span class="chip">Decision-support design</span>
         <span class="chip">RBAC / permission modeling</span>
+        <span class="chip">Workflow design</span>
+        <span class="chip">PRD authoring</span>
         <span class="chip">User journey mapping</span>
         <span class="chip">Stakeholder communication</span>
         <span class="chip">UAT support</span>
-        <span class="chip">Phased delivery planning</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== VISUAL EVIDENCE ============== -->
-<section id="visuals">
-  <div class="container">
-    <div class="section-eyebrow">Visual Evidence</div>
-    <h2 class="section-title">Selected Visual Evidence</h2>
-    <p class="section-intro">Each card distills the core product logic of a case into a small diagram. All labels are sample wording.</p>
-
-    <div class="visual-grid">
-
-      <!-- ===== Mini Card 1 — Threat Intelligence Dashboard ===== -->
-      <div class="visual-card">
-        <svg class="mini-diagram" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threat intelligence dashboard logic">
-          <defs>
-            <marker id="arrow-ctip" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 Z" fill="#2c4a7c"/>
-            </marker>
-          </defs>
-
-          <!-- Filter bar -->
-          <rect x="14" y="14" width="292" height="14" rx="3" fill="#ffffff" stroke="#d6dae3"/>
-          <line x1="60" y1="21" x2="100" y2="21" stroke="#6b7385" stroke-width="2"/>
-          <line x1="120" y1="21" x2="160" y2="21" stroke="#6b7385" stroke-width="2"/>
-          <line x1="180" y1="21" x2="220" y2="21" stroke="#6b7385" stroke-width="2"/>
-          <text x="20" y="24" font-size="8" fill="#6b7385" font-family="sans-serif" font-weight="600">FILTERS</text>
-
-          <!-- KPI cards -->
-          <rect x="14" y="36" width="92" height="48" rx="4" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="60" y="50" text-anchor="middle" font-size="7" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="0.6">COMPOSITE SCORE</text>
-          <polyline points="22,72 36,66 50,70 64,58 78,62 92,52" fill="none" stroke="#2c4a7c" stroke-width="1.5"/>
-
-          <rect x="114" y="36" width="92" height="48" rx="4" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="160" y="50" text-anchor="middle" font-size="7" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="0.6">IOC ACTIVITY</text>
-          <rect x="122" y="64" width="6" height="16" fill="#2c4a7c"/>
-          <rect x="132" y="58" width="6" height="22" fill="#2c4a7c"/>
-          <rect x="142" y="68" width="6" height="12" fill="#2c4a7c"/>
-          <rect x="152" y="56" width="6" height="24" fill="#2c4a7c"/>
-          <rect x="162" y="62" width="6" height="18" fill="#2c4a7c"/>
-          <rect x="172" y="70" width="6" height="10" fill="#2c4a7c"/>
-          <rect x="182" y="60" width="6" height="20" fill="#2c4a7c"/>
-          <rect x="192" y="66" width="6" height="14" fill="#2c4a7c"/>
-
-          <rect x="214" y="36" width="92" height="48" rx="4" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="260" y="50" text-anchor="middle" font-size="7" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="0.6">ENTITY VIEW</text>
-          <line x1="232" y1="68" x2="264" y2="58" stroke="#6b7385" stroke-width="0.7"/>
-          <line x1="264" y1="58" x2="290" y2="70" stroke="#6b7385" stroke-width="0.7"/>
-          <line x1="264" y1="58" x2="270" y2="78" stroke="#6b7385" stroke-width="0.7"/>
-          <line x1="232" y1="68" x2="270" y2="78" stroke="#6b7385" stroke-width="0.7"/>
-          <circle cx="232" cy="68" r="3" fill="#2c4a7c"/>
-          <circle cx="264" cy="58" r="3" fill="#2c4a7c"/>
-          <circle cx="290" cy="70" r="3" fill="#2c4a7c"/>
-          <circle cx="270" cy="78" r="3" fill="#2c4a7c"/>
-
-          <!-- Pipeline below -->
-          <text x="14" y="106" font-size="8" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="1">DATA DEPENDENCY</text>
-          <rect x="14"  y="116" width="50" height="22" rx="3" fill="#f7f8fa" stroke="#e5e8ee"/>
-          <text x="39"  y="131" text-anchor="middle" font-size="8" fill="#4a5365" font-family="sans-serif">Sources</text>
-          <line x1="64"  y1="127" x2="74"  y2="127" stroke="#2c4a7c" stroke-width="1.2" marker-end="url(#arrow-ctip)"/>
-
-          <rect x="76"  y="116" width="50" height="22" rx="3" fill="#f7f8fa" stroke="#e5e8ee"/>
-          <text x="101" y="131" text-anchor="middle" font-size="8" fill="#4a5365" font-family="sans-serif">IOC</text>
-          <line x1="126" y1="127" x2="136" y2="127" stroke="#2c4a7c" stroke-width="1.2" marker-end="url(#arrow-ctip)"/>
-
-          <rect x="138" y="116" width="50" height="22" rx="3" fill="#f7f8fa" stroke="#e5e8ee"/>
-          <text x="163" y="131" text-anchor="middle" font-size="8" fill="#4a5365" font-family="sans-serif">KPI</text>
-          <line x1="188" y1="127" x2="198" y2="127" stroke="#2c4a7c" stroke-width="1.2" marker-end="url(#arrow-ctip)"/>
-
-          <rect x="200" y="116" width="62" height="22" rx="3" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <text x="231" y="131" text-anchor="middle" font-size="8" fill="#2c4a7c" font-family="sans-serif" font-weight="600">Dashboard</text>
-          <line x1="262" y1="127" x2="272" y2="127" stroke="#2c4a7c" stroke-width="1.2" marker-end="url(#arrow-ctip)"/>
-
-          <rect x="274" y="116" width="32" height="22" rx="3" fill="#f7f8fa" stroke="#e5e8ee"/>
-          <text x="290" y="131" text-anchor="middle" font-size="8" fill="#4a5365" font-family="sans-serif">Out</text>
-
-          <text x="14" y="158" font-size="8" fill="#6b7385" font-family="sans-serif" font-style="italic">sample labels · representative dependency</text>
-        </svg>
-        <h4>Threat Intelligence Dashboard Logic</h4>
-        <p class="diagram-caption">A tiered decision-support dashboard fed by a disciplined data pipeline — KPI governance, severity tiers, and permission-aware output.</p>
-        <ul>
-          <li>Sample KPI labels (Composite Score · IOC Activity · Entity View)</li>
-          <li>Drill-down hierarchy: global → regional → entity</li>
-          <li>Severity tiers (Critical / Elevated / Normal)</li>
-          <li>Data dependency pipeline with structured output</li>
-        </ul>
-      </div>
-
-      <!-- ===== Mini Card 2 — Drone Regulation Platform Projects ===== -->
-      <div class="visual-card">
-        <svg class="mini-diagram" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drone regulation platform — three project areas">
-          <!-- Area 1 -->
-          <rect x="14" y="14" width="292" height="44" rx="6" fill="#ffffff" stroke="#d6dae3"/>
-          <rect x="14" y="14" width="3"   height="44" fill="#2c4a7c"/>
-          <text x="26" y="32" font-size="9" fill="#2c4a7c" font-family="sans-serif" font-weight="700">AREA 1</text>
-          <text x="26" y="48" font-size="8"  fill="#6b7385" font-family="sans-serif">PUBLIC SERVICE</text>
-          <circle cx="135" cy="36" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="175" cy="36" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="215" cy="36" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="255" cy="36" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <line x1="141" y1="36" x2="169" y2="36" stroke="#6b7385" stroke-width="1"/>
-          <line x1="181" y1="36" x2="209" y2="36" stroke="#6b7385" stroke-width="1"/>
-          <line x1="221" y1="36" x2="249" y2="36" stroke="#6b7385" stroke-width="1"/>
-
-          <!-- Area 2 -->
-          <rect x="14" y="68" width="292" height="44" rx="6" fill="#ffffff" stroke="#d6dae3"/>
-          <rect x="14" y="68" width="3"   height="44" fill="#2c4a7c"/>
-          <text x="26" y="86"  font-size="9" fill="#2c4a7c" font-family="sans-serif" font-weight="700">AREA 2</text>
-          <text x="26" y="102" font-size="8"  fill="#6b7385" font-family="sans-serif">MONITORING</text>
-          <circle cx="135" cy="90" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="175" cy="90" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="215" cy="90" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="255" cy="90" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <line x1="141" y1="90" x2="169" y2="90" stroke="#6b7385" stroke-width="1"/>
-          <line x1="181" y1="90" x2="209" y2="90" stroke="#6b7385" stroke-width="1"/>
-          <line x1="221" y1="90" x2="249" y2="90" stroke="#6b7385" stroke-width="1"/>
-
-          <!-- Area 3 -->
-          <rect x="14" y="122" width="292" height="44" rx="6" fill="#ffffff" stroke="#d6dae3"/>
-          <rect x="14" y="122" width="3"   height="44" fill="#2c4a7c"/>
-          <text x="26" y="140" font-size="9" fill="#2c4a7c" font-family="sans-serif" font-weight="700">AREA 3</text>
-          <text x="26" y="156" font-size="8"  fill="#6b7385" font-family="sans-serif">GOVERNANCE</text>
-          <circle cx="120" cy="144" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="155" cy="144" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="190" cy="144" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="225" cy="144" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <circle cx="260" cy="144" r="6" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <line x1="126" y1="144" x2="149" y2="144" stroke="#6b7385" stroke-width="1"/>
-          <line x1="161" y1="144" x2="184" y2="144" stroke="#6b7385" stroke-width="1"/>
-          <line x1="196" y1="144" x2="219" y2="144" stroke="#6b7385" stroke-width="1"/>
-          <line x1="231" y1="144" x2="254" y2="144" stroke="#6b7385" stroke-width="1"/>
-
-          <!-- Vertical connector line -->
-          <line x1="285" y1="58"  x2="285" y2="68"  stroke="#2c4a7c" stroke-width="1.4" stroke-dasharray="2,2"/>
-          <line x1="285" y1="112" x2="285" y2="122" stroke="#2c4a7c" stroke-width="1.4" stroke-dasharray="2,2"/>
-        </svg>
-        <h4>Drone Regulation Platforms — Project Areas</h4>
-        <p class="diagram-caption">Three connected project areas — public service, real-time monitoring, governance — spanning public-facing, regulator-facing, and governance-facing capabilities, with AI add-ons as supporting capabilities.</p>
-        <ul>
-          <li>Area 1 — Public Drone Service Journey across six audience types</li>
-          <li>Area 2 — Real-time Drone Monitoring (map · stats · drill-down)</li>
-          <li>Area 3 — Governance &amp; RBAC (org · role · permission · scope · audit)</li>
-          <li>Cross-cutting: AI-assisted intake, review, and self-service</li>
-        </ul>
-      </div>
-
-      <!-- ===== Mini Card 3 — Aviation ===== -->
-      <div class="visual-card">
-        <svg class="mini-diagram" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aviation request lifecycle and governance">
-          <defs>
-            <marker id="arrow-aviation" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 Z" fill="#2c4a7c"/>
-            </marker>
-          </defs>
-          <text x="20" y="22" font-size="9" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="1">REQUEST LIFECYCLE</text>
-
-          <!-- Lifecycle nodes -->
-          <rect x="14"  y="42" width="52" height="28" rx="4" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="40"  y="60" text-anchor="middle" font-size="9" fill="#1a1f2c" font-family="sans-serif">Submit</text>
-          <line x1="68"  y1="56" x2="78"  y2="56" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#arrow-aviation)"/>
-
-          <rect x="80"  y="42" width="52" height="28" rx="4" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="106" y="60" text-anchor="middle" font-size="9" fill="#1a1f2c" font-family="sans-serif">Review</text>
-          <line x1="134" y1="56" x2="144" y2="56" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#arrow-aviation)"/>
-
-          <rect x="146" y="42" width="58" height="28" rx="4" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <text x="175" y="60" text-anchor="middle" font-size="9" fill="#2c4a7c" font-family="sans-serif" font-weight="600">Approve</text>
-          <line x1="206" y1="56" x2="216" y2="56" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#arrow-aviation)"/>
-
-          <rect x="218" y="42" width="48" height="28" rx="4" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="242" y="60" text-anchor="middle" font-size="9" fill="#1a1f2c" font-family="sans-serif">Notify</text>
-          <line x1="268" y1="56" x2="278" y2="56" stroke="#2c4a7c" stroke-width="1.4" marker-end="url(#arrow-aviation)"/>
-
-          <rect x="280" y="42" width="32" height="28" rx="4" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="296" y="60" text-anchor="middle" font-size="9" fill="#1a1f2c" font-family="sans-serif">Done</text>
-
-          <!-- Notification trigger glyph -->
-          <circle cx="242" cy="86" r="5" fill="#eaf0fa" stroke="#2c4a7c"/>
-          <line x1="242" y1="83" x2="242" y2="89" stroke="#2c4a7c" stroke-width="1"/>
-          <line x1="240" y1="92" x2="244" y2="92" stroke="#2c4a7c" stroke-width="1"/>
-
-          <!-- Governance chips -->
-          <text x="20" y="110" font-size="9" fill="#6b7385" font-family="sans-serif" font-weight="600" letter-spacing="1">GOVERNANCE</text>
-          <rect x="14"  y="120" width="58" height="22" rx="11" fill="#f7f8fa" stroke="#e5e8ee"/>
-          <text x="43"  y="135" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">Auth</text>
-          <rect x="80"  y="120" width="58" height="22" rx="11" fill="#f7f8fa" stroke="#e5e8ee"/>
-          <text x="109" y="135" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">RBAC</text>
-          <rect x="146" y="120" width="58" height="22" rx="11" fill="#f7f8fa" stroke="#e5e8ee"/>
-          <text x="175" y="135" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">Audit</text>
-          <rect x="212" y="120" width="98" height="22" rx="11" fill="#f7f8fa" stroke="#e5e8ee"/>
-          <text x="261" y="135" text-anchor="middle" font-size="9" fill="#4a5365" font-family="sans-serif">UAT / Production</text>
-
-          <!-- Bottom baseline -->
-          <line x1="14" y1="160" x2="306" y2="160" stroke="#e5e8ee" stroke-width="1" stroke-dasharray="2,3"/>
-        </svg>
-        <h4>Aviation Workflow &amp; Governance</h4>
-        <p class="diagram-caption">A linear request lifecycle (Draft → Review → Approve → Notify → Done) protected by authentication, role-based access, audit trail, and environment separation.</p>
-        <ul>
-          <li>Lifecycle states with side branches (Cancelled / Unable)</li>
-          <li>Four-role × multi-module RBAC pattern</li>
-          <li>3-channel notification trigger (in-app · push · SMS)</li>
-          <li>Bilingual EN / AR · UAT / Production separation</li>
-        </ul>
-      </div>
-
-      <!-- ===== Mini Card 4 — AI Schedule ===== -->
-      <div class="visual-card">
-        <svg class="mini-diagram" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI schedule workflow loop">
-          <defs>
-            <marker id="arrow-ai" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 Z" fill="#2c4a7c"/>
-            </marker>
-          </defs>
-
-          <!-- Center label -->
-          <text x="160" y="86"  text-anchor="middle" font-size="9"  fill="#6b7385" font-weight="600" font-family="sans-serif" letter-spacing="1">AGENT SUGGESTS</text>
-          <text x="160" y="100" text-anchor="middle" font-size="9"  fill="#6b7385" font-weight="600" font-family="sans-serif" letter-spacing="1">USER DECIDES</text>
-
-          <!-- 6 nodes around an oval -->
-          <circle cx="80" cy="40" r="16" fill="#ffffff" stroke="#2c4a7c" stroke-width="1.4" stroke-dasharray="3,2"/>
-          <text x="80" y="44" text-anchor="middle" font-size="8" fill="#2c4a7c" font-family="sans-serif">Input</text>
-
-          <circle cx="160" cy="30" r="16" fill="#2c4a7c"/>
-          <text x="160" y="34" text-anchor="middle" font-size="8" fill="#ffffff" font-family="sans-serif">Parse</text>
-
-          <circle cx="240" cy="40" r="16" fill="#2c4a7c"/>
-          <text x="240" y="44" text-anchor="middle" font-size="8" fill="#ffffff" font-family="sans-serif">Plan</text>
-
-          <circle cx="240" cy="140" r="16" fill="#ffffff" stroke="#2c4a7c" stroke-width="1.4" stroke-dasharray="3,2"/>
-          <text x="240" y="144" text-anchor="middle" font-size="8" fill="#2c4a7c" font-family="sans-serif">Confirm</text>
-
-          <circle cx="160" cy="150" r="16" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="160" y="154" text-anchor="middle" font-size="8" fill="#1a1f2c" font-family="sans-serif">Remind</text>
-
-          <circle cx="80" cy="140" r="16" fill="#ffffff" stroke="#d6dae3"/>
-          <text x="80" y="144" text-anchor="middle" font-size="8" fill="#1a1f2c" font-family="sans-serif">Review</text>
-
-          <!-- Curved arrows around the oval -->
-          <path d="M 95 33 Q 125 16 144 26"  stroke="#2c4a7c" stroke-width="1.2" fill="none" marker-end="url(#arrow-ai)"/>
-          <path d="M 176 26 Q 205 16 225 33" stroke="#2c4a7c" stroke-width="1.2" fill="none" marker-end="url(#arrow-ai)"/>
-          <path d="M 250 55 Q 262 90 250 125" stroke="#2c4a7c" stroke-width="1.2" fill="none" marker-end="url(#arrow-ai)"/>
-          <path d="M 225 147 Q 200 162 176 152" stroke="#2c4a7c" stroke-width="1.2" fill="none" marker-end="url(#arrow-ai)"/>
-          <path d="M 144 152 Q 120 162 95 147" stroke="#2c4a7c" stroke-width="1.2" fill="none" marker-end="url(#arrow-ai)"/>
-          <path d="M 70 125 Q 58 90 70 55"   stroke="#2c4a7c" stroke-width="1.2" fill="none" stroke-dasharray="3,2" marker-end="url(#arrow-ai)"/>
-        </svg>
-        <h4>Consumer AI Assistant — Workflow Pattern</h4>
-        <p class="diagram-caption">A continuous loop where the agent proposes (filled) and the user decides (dashed) — a transferable pattern for AI inside operational products.</p>
-        <ul>
-          <li>Input → Agent Suggestion → User Confirmation → Reminder loop</li>
-          <li>Filled nodes = agent · dashed nodes = user</li>
-          <li>Dotted return arrow signals a continuous cycle</li>
-          <li>Center label reinforces human-in-the-loop control</li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1711,12 +1832,12 @@
 <section id="contact" class="contact">
   <div class="container">
     <div class="section-eyebrow">Contact</div>
-    <h2>Let's talk</h2>
-    <p class="section-intro">Open to conversations about product roles where applied AI, big-data analytics, governance design, and cross-functional delivery in government and enterprise contexts are central to the work.</p>
+    <h2>Let's talk.</h2>
+    <p class="contact-intro">I'm open to conversations about senior product design roles where applied AI, decision-support data products, and governance design intersect — especially in government and enterprise contexts.</p>
     <div class="contact-card">
       <div>
         <p class="contact-name">Zhuoyan Meng</p>
-        <p class="contact-role">Senior Product Designer &amp; Manager — AI-enabled Government &amp; Enterprise Platforms</p>
+        <p class="contact-role">Senior Product Designer &amp; Manager — AI-assisted Decision &amp; Workflow Systems</p>
       </div>
       <a class="contact-email" href="mailto:zymeng05@gmail.com">zymeng05@gmail.com</a>
     </div>
@@ -1726,8 +1847,8 @@
 <!-- ============== FOOTER ============== -->
 <footer>
   <div class="container">
-    <p class="footer-note">Confidentiality note: all cases are presented as anonymized product cases. No confidential client, system, or operational information is included.</p>
-    <p style="margin-top: 8px;">© Zhuoyan Meng · Product Portfolio</p>
+    <p class="footer-note">Client engagements are presented as anonymized product cases. Mockups are illustrative — no real client UI, data, or identifiers are included.</p>
+    <p>© Zhuoyan Meng · Portfolio</p>
   </div>
 </footer>
 
